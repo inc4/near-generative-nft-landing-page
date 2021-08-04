@@ -1,0 +1,41 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+html {
+    font-size: 14px;
+}
+  
+li {
+    list-style-type: none;
+}
+h2 {
+     font-size: 28px;
+     line-height: 1.2;
+}
+  
+a {
+  
+    &:hover {
+      text-decoration: none;
+    }
+  
+    &:visited {
+      text-decoration: none;
+    }
+  
+    &:link {
+      text-decoration: none;
+    }
+  
+    &:active {
+      text-decoration: none;
+    }
+}
+  
+p {
+    margin: 0;
+}
