@@ -4,6 +4,7 @@ import Learn from '../../components/Learn';
 import Rarity from '../../components/Rarity';
 import Generate from '../../components/Generate';
 import Roadmap from '../../components/Roadmap';
+import FAQ from '../../components/FAQ';
 
 const Home = () => (
   <>
@@ -12,6 +13,7 @@ const Home = () => (
     <Rarity />
     <Generate />
     <Roadmap />
+    <FAQ />
   </>
 );
 
