@@ -1,11 +1,16 @@
 import React from 'react';
-import Navigation from '../../components/Navigation/Navigation';
+import { ReactSVG } from 'react-svg';
+import Navigation from '../../components/Navigation';
+import ConnectWalletBtn from '../../components/ConnectWalletBtn';
+import SocialLinks from '../../components/SocialLinks';
+import logo from '../../assets/images/nearkat-logo.svg';
+
 const Header = () => (
   <header>
+    <ReactSVG src={logo} />
     <Navigation />
-    <div>
-      <img src="./images/social_face.svg" alt="social" />
-    </div>
+    <SocialLinks />
+    <ConnectWalletBtn />
   </header>
 );
 
