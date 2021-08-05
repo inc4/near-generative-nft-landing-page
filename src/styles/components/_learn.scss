@@ -1,0 +1,21 @@
+.learn {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  padding: 130px 0 170px;
+
+  &__title {
+    font-size: 36px;
+    line-height: 115%;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    color: $common-color;
+    margin-bottom: 16px;
+    max-width: 345px;
+  }
+}
