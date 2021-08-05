@@ -5,14 +5,16 @@ import bigCat from '../../assets/images/hero-big-cat.svg';
 
 const Hero = () => (
   <div className="hero">
-    <div>
-      <h1>Cute is the new ‘cool’</h1>
-      <p>Now you can own some of the cutest critters in the Metaverse.</p>
-      <p>Sale Launches August 16th</p>
-      <CalendarBtn />
-    </div>
-    <ReactSVG src={bigCat} />
-    <div className="hero__background">Backgournd with clouds</div>
+    <h1 className="hero__title">
+      <span className="hero__title_red">Cute</span> is the new ‘
+      <span className="hero__title_red">cool</span>’
+    </h1>
+    <p className="hero__text">
+      Now you can own some of the cutest critters in the Metaverse.
+    </p>
+    <p className="hero__text hero__text_red">Sale Launches August 16th</p>
+    <CalendarBtn className="hero__calendar-btn" />
+    <ReactSVG className="hero__img" src={bigCat} />
   </div>
 );
 
