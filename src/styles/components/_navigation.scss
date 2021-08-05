@@ -1,0 +1,22 @@
+.navigation {
+  margin-right: 150px;
+
+  @include for-small-desktop {
+    margin-right: 50px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    min-width: 102px;
+  }
+
+  &__link {
+    color: $purpure-color;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 115%;
+  }
+}

@@ -1,0 +1,21 @@
+.header {
+  padding: 36px 120px;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+
+  @include for-small-desktop {
+    padding: 36px;
+  }
+
+  &__logo {
+    margin-right: 98px;
+
+    @include for-small-desktop {
+      margin-right: 40px;
+    }
+  }
+}
