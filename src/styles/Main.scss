@@ -4,9 +4,7 @@
 
 @import './utilities/icons';
 @import './utilities/base';
-
-// Fonts
-@import './fonts/fonts';
+@import './utilities/mixins';
 
 // Layout
 @import './layout/layout';
@@ -14,6 +12,9 @@
 @import './layout/footer';
 
 // components
+@import './components/navigation';
+@import './components/social-links';
+@import './components/connect-wallet';
 
 //pages
 @import './pages/home';

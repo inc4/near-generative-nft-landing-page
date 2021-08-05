@@ -6,8 +6,8 @@ import SocialLinks from '../../components/SocialLinks';
 import logo from '../../assets/images/nearkat-logo.svg';
 
 const Header = () => (
-  <header>
-    <ReactSVG src={logo} />
+  <header className="header">
+    <ReactSVG className="header__logo" src={logo} />
     <Navigation />
     <SocialLinks />
     <ConnectWalletBtn />
