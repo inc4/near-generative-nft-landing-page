@@ -7,14 +7,14 @@ import Roadmap from '../../components/Roadmap';
 import FAQ from '../../components/FAQ';
 
 const Home = () => (
-  <>
+  <div className="home__container">
     <Hero />
     <Learn />
     <Rarity />
     <Generate />
     <Roadmap />
     <FAQ />
-  </>
+  </div>
 );
 
 export default Home;
