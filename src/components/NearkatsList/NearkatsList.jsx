@@ -1,16 +1,20 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import NearkatsListItem from './NearkatListItem';
 
 const NearkatsList = ({ kats }) => (
-  <ul>
+  <ul className="nearkats-list">
     {kats.length &&
-      kats.map((kat) => (
-        <li>
-          <NearkatsListItem key={kat.id} kat={kat} />
-        </li>
-      ))}
+      kats.map((kat) => <NearkatsListItem key={kat.id} kat={kat} />)}
   </ul>
 );
+
+NearkatsList.propTypes = {
+  kats: PropTypes.array,
+};
+
+NearkatsList.defaultProps = {
+  kats: [],
+};
 
 export default NearkatsList;

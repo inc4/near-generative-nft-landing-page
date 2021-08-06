@@ -2,14 +2,15 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 
-const NearkatCard = ({ kat }) => (
-  <div>
-    <img src={kat.srcImg} alt="image_name" />
-    <p>{kat.id} </p> <ReactSVG src={kat.svgRarityIcon} />
-    <p>palette: {kat.palette}</p>
-    <p>clothes: {kat.clothes}</p>
-    <p>hat: {kat.hat}</p>
-  </div>
+const NearkatsListItem = ({ kat }) => (
+  <li className="nearkats-item">
+    <img className="nearkats-item__img" src={kat.srcImg} alt="image_name" />
+    <div className="nearkats-item__header">
+      <p>#0123456789 </p>
+      <ReactSVG src={kat.svgRarityIcon} />
+    </div>
+    <ReactSVG src={kat.svgRate} />
+  </li>
 );
 
-export default NearkatCard;
+export default NearkatsListItem;

@@ -1,7 +1,11 @@
 .hero {
-  padding: 130px 0 115px;
-  position: relative;
-  color: $common-color;
+  padding: 130px 0 185px;
+
+  &__container {
+    position: relative;
+    color: $common-color;
+    padding-bottom: 115px;
+  }
 
   &__title {
     font-weight: 500;

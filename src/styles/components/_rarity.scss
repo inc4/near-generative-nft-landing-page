@@ -1,0 +1,54 @@
+.rarity {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  padding: 110px 0 285px;
+
+  &__title {
+    font-size: 36px;
+    line-height: 115%;
+    width: 320px;
+    color: $secondary-color;
+  }
+
+  &__text {
+    width: 305px;
+    font-size: 16px;
+    line-height: 150%;
+    color: $common-color;
+    margin-bottom: 16px;
+  }
+
+  &__header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding-top: 20px;
+    width: 992px;
+    margin: auto;
+
+    &-background {
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      top: -30px;
+      left: 100px;
+    }
+  }
+
+  &__content-wrapper {
+    position: relative;
+    z-index: 10;
+    background: white;
+    width: 100%;
+  }
+
+  &__content {
+    width: 992px;
+    margin: auto;
+    display: flex;
+    padding: 40px 0;
+    position: relative;
+    z-index: 10;
+  }
+}

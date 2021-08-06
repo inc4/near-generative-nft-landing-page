@@ -7,13 +7,18 @@ const Learn = () => (
       <p className="learn__text">
         Nestled in the Nearverse, you can find the Nearkats using their powers
         of cuteness to bring forth the dream of the open web.
-        <br />
+      </p>
+      <p className="learn__text">
         Now, you have the power to bolster their efforts by bringing more into
         existence.
-        <br />
+      </p>
+
+      <p className="learn__text">
         This next generation is a collection of 10,000 Nearkats, randomly and
         programmatically generated, on the NEAR Blockchain.
-        <br />
+      </p>
+
+      <p className="learn__text">
         They have a variety of colors, characteristics, faces, and features.
       </p>
     </div>

@@ -5,6 +5,11 @@ import rare from '../../assets/images/rarity-rare.svg';
 import veryRare from '../../assets/images/rarity-very-rare.svg';
 import superRare from '../../assets/images/rarity-super-rare.svg';
 
+import rateKat1 from '../../assets/images/rarity-rate-kat1.svg';
+import rateKat2 from '../../assets/images/rarity-rate-kat2.svg';
+import rateKat3 from '../../assets/images/rarity-rate-kat3.svg';
+import rateKat4 from '../../assets/images/rarity-rate-kat4.svg';
+
 const rarityData = {
   rates: [
     {
@@ -43,6 +48,7 @@ const rarityData = {
       id: shortid.generate(),
       svgRarityIcon: common,
       srcImg: './images/rarity-kat1.png',
+      svgRate: rateKat1,
       palette: 2,
       clothes: 3,
       hat: 2,
@@ -51,6 +57,7 @@ const rarityData = {
       id: shortid.generate(),
       svgRarityIcon: superRare,
       srcImg: './images/rarity-kat2.png',
+      svgRate: rateKat2,
       palette: 5,
       clothes: 5,
       hat: 5,
@@ -59,6 +66,7 @@ const rarityData = {
       id: shortid.generate(),
       svgRarityIcon: veryRare,
       srcImg: './images/rarity-kat3.png',
+      svgRate: rateKat3,
       palette: 3,
       clothes: 3,
       hat: 4,
@@ -67,6 +75,7 @@ const rarityData = {
       id: shortid.generate(),
       svgRarityIcon: veryRare,
       srcImg: './images/rarity-kat4.png',
+      svgRate: rateKat4,
       palette: 3,
       clothes: 3,
       hat: 4,
