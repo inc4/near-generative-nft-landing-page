@@ -1,0 +1,45 @@
+.generate {
+  display: flex;
+  background-color: $common-color;
+
+  &__container {
+    width: 992px;
+    margin: auto;
+    padding: 170px 0 210px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__information {
+    max-width: 345px;
+    font-weight: 500;
+    color: #c4c4c4;
+    padding-top: 30px;
+  }
+
+  &__title {
+    color: $white;
+    font-size: 36px;
+    line-height: 115%;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 24px;
+  }
+
+  &__list-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    padding-left: 20px;
+  }
+
+  &__list-item {
+    list-style-type: disc;
+  }
+}

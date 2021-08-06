@@ -13,8 +13,8 @@ const Home = () => (
       <Learn />
     </div>
     <Rarity />
+    <Generate />
     <div className="home__container">
-      <Generate />
       <Roadmap />
       <FAQ />
     </div>
