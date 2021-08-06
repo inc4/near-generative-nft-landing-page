@@ -1,14 +1,15 @@
 .header {
   padding: 36px 120px;
-  max-width: 1440px;
+  max-width: 1455px;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  flex-wrap: wrap;
 
   @include for-small-desktop {
     padding: 36px;
+    flex-wrap: wrap;
   }
 
   &__logo {
