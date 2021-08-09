@@ -1,15 +1,16 @@
 .faq {
-  &__wrapper {
-    margin-top: 123px;
-    padding-top: 130px;
-  }
-
+  margin-bottom: 55px;
   position: relative;
   background: linear-gradient(
     180deg,
     rgba(215, 219, 255, 0) 74.48%,
     rgba(215, 219, 255, 0.5) 100%
   );
+
+  &__wrapper {
+    padding-top: 130px;
+    margin-top: 123px;
+  }
 
   &__container {
     padding-bottom: 200px;
