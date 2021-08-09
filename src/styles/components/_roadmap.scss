@@ -1,0 +1,119 @@
+.roadmap {
+  font-weight: 500;
+  background: rgba(226, 245, 255, 0.5);
+  position: relative;
+
+  &__container {
+    max-width: 586px;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+    padding: 200px 0 159px;
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 115%;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    width: 545px;
+    padding-bottom: 25px;
+    padding-left: 41px;
+    color: $common-color;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 13px;
+      height: 13px;
+      background-color: #579ff4;
+      border: 6px solid $white;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 6px;
+    }
+
+    &:not(:last-child)::before {
+      position: absolute;
+      display: block;
+      height: 95%;
+      content: '';
+      left: 12px;
+      bottom: 0;
+      border-left: 3px dashed rgba(87, 159, 244, 0.5);
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 150%;
+      margin-bottom: 15px;
+    }
+
+    &-text {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: -57px;
+    bottom: -50px;
+    transform: translateX(100%);
+
+    svg {
+      width: 274px;
+      height: fit-content;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    &-ellipse-left {
+      position: absolute;
+      width: 1001.33px;
+      height: 638.56px;
+      left: -296px;
+      top: 165px;
+
+      background: linear-gradient(277.31deg, #e2f5ff 12.78%, #d7dbff 89.84%);
+      opacity: 0.5;
+      filter: blur(200px);
+      transform: rotate(-90deg);
+    }
+
+    &-ellipse-right {
+      width: 1001.33px;
+      height: 638.56px;
+      background: linear-gradient(277.31deg, #e2f5ff 12.78%, #ffece6 89.84%);
+      filter: blur(200px);
+      transform: rotate(-168.71deg);
+      position: absolute;
+      left: 50%;
+      top: 127px;
+    }
+
+    &-clouds {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+
+      svg {
+        width: 1600px;
+      }
+    }
+  }
+}
