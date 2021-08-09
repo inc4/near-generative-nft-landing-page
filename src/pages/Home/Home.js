@@ -8,8 +8,8 @@ import FAQ from '../../components/FAQ';
 
 const Home = () => (
   <>
+    <Hero />
     <div className="home__container">
-      <Hero />
       <Learn />
     </div>
     <Rarity />
