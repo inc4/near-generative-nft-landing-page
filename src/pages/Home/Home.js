@@ -14,8 +14,8 @@ const Home = () => (
     </div>
     <Rarity />
     <Generate />
+    <Roadmap />
     <div className="home__container">
-      <Roadmap />
       <FAQ />
     </div>
   </>

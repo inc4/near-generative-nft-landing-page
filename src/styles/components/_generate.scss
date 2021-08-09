@@ -1,6 +1,8 @@
 .generate {
   display: flex;
   background-color: $common-color;
+  position: relative;
+  z-index: 1;
 
   &__container {
     width: 992px;
