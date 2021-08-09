@@ -1,6 +1,10 @@
 .faq {
+  &__wrapper {
+    margin-top: 123px;
+    padding-top: 130px;
+  }
+
   position: relative;
-  padding-top: 253px;
   background: linear-gradient(
     180deg,
     rgba(215, 219, 255, 0) 74.48%,
@@ -53,7 +57,7 @@
 
     &-ellipse-left {
       position: absolute;
-      top: -120px;
+      top: -40px;
       left: 0;
     }
 
