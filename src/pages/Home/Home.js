@@ -15,9 +15,7 @@ const Home = () => (
     <Rarity />
     <Generate />
     <Roadmap />
-    <div className="home__container">
-      <FAQ />
-    </div>
+    <FAQ />
   </>
 );
 
