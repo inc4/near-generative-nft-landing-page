@@ -5,7 +5,7 @@ import leftEllipse from '../../assets/images/faq-ellipse-left.svg';
 // import faqKat from '../../assets/images/faq-kat.svg';
 
 const FAQ = () => (
-  <div className="faq">
+  <section id="faq" className="faq">
     <div className="faq__background">
       <ReactSVG className="faq__background-ellipse-left" src={leftEllipse} />
       <ReactSVG className="faq__background-ellipse-right" src={rightEllipse} />
@@ -74,9 +74,9 @@ const FAQ = () => (
           </p>
         </li>
       </ul>
-      <img className="faq__cat-img" src="./images/faq-kat.png" alt="cat" />
+      <img className="faq__kat-img" src="./images/faq-kat.png" alt="nearkat" />
     </div>
-  </div>
+  </section>
 );
 
 export default FAQ;

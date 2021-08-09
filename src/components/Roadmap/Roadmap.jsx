@@ -6,7 +6,7 @@ import clouds from '../../assets/images/roadmap-background-clouds.svg';
 // import ellipseLeft from '../../assets/images/roadmap-background-ellips-left.svg';
 
 const Roadmap = () => (
-  <div className="roadmap">
+  <section id="roadmap" className="roadmap">
     <div className="roadmap__background">
       <div className="roadmap__background-ellipse-right" />
       <div className="roadmap__background-ellipse-left" />
@@ -67,7 +67,7 @@ const Roadmap = () => (
       </ul>
       <ReactSVG className="roadmap__icon" src={bigCat} />
     </div>
-  </div>
+  </section>
 );
 
 export default Roadmap;

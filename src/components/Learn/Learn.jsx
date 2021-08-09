@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Learn = () => (
-  <div className="learn">
+  <section id="learn" className="learn">
     <div className="learn__information">
       <h2 className="learn__title">Nearkats: Next Generation</h2>
       <p className="learn__text">
@@ -23,7 +23,7 @@ const Learn = () => (
       </p>
     </div>
     <img src="./images/learn-cats-gourp.png" alt="cats group" />
-  </div>
+  </section>
 );
 
 export default Learn;
