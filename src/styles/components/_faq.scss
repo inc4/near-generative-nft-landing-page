@@ -1,6 +1,10 @@
 .faq {
+  &__wrapper {
+    margin-top: 123px;
+    padding-top: 130px;
+  }
+
   position: relative;
-  padding-top: 253px;
   background: linear-gradient(
     180deg,
     rgba(215, 219, 255, 0) 74.48%,
@@ -13,7 +17,6 @@
     z-index: 10;
     width: 586px;
     margin: auto;
-    font-weight: 500;
   }
 
   &__title {
@@ -36,14 +39,9 @@
       font-size: 24px;
       margin-bottom: 14px;
     }
-
-    &-text {
-      font-weight: 500;
-      font-size: 14px;
-    }
   }
 
-  &__cat-img {
+  &__kat-img {
     position: absolute;
     right: -57px;
     bottom: -50px;
@@ -59,7 +57,7 @@
 
     &-ellipse-left {
       position: absolute;
-      top: -120px;
+      top: -40px;
       left: 0;
     }
 

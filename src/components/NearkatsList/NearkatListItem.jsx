@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { ReactSVG } from 'react-svg';
+import PropTypes from 'prop-types';
 
 const NearkatsListItem = ({ kat }) => (
   <li className="nearkats-item">
@@ -12,5 +12,9 @@ const NearkatsListItem = ({ kat }) => (
     <ReactSVG src={kat.svgRate} />
   </li>
 );
+
+NearkatsListItem.propTypes = {
+  kat: PropTypes.object,
+};
 
 export default NearkatsListItem;

@@ -1,14 +1,19 @@
 .hero {
-  padding: 130px 0 185px;
+  padding: 130px 0 259px;
 
   &__container {
     position: relative;
     color: $common-color;
-    padding-bottom: 115px;
+  }
+
+  &__information {
+    width: 992px;
+    margin: auto;
+    position: relative;
+    padding-bottom: 46px;
   }
 
   &__title {
-    font-weight: 500;
     font-size: 50px;
     line-height: 115%;
     margin-bottom: 24px;
@@ -19,7 +24,6 @@
   }
 
   &__text {
-    font-weight: 500;
     font-size: 24px;
     line-height: 150%;
     max-width: 484px;
@@ -56,6 +60,41 @@
     position: absolute;
     z-index: 5;
     right: 0;
-    bottom: 0;
+    bottom: -80px;
+  }
+
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &-ellipse {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-40%);
+      pointer-events: unset;
+    }
+
+    &-cloud1 {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-200px);
+    }
+
+    &-cloud2 {
+      position: absolute;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(-30px);
+    }
+
+    &-cloud3 {
+      position: absolute;
+      left: 50%;
+      bottom: 78px;
+      transform: translateX(380px);
+    }
   }
 }

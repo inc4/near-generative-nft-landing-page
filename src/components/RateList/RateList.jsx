@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import RateListItem from './RateListItem';
 
 const RateList = ({ rates }) => (
@@ -8,5 +8,9 @@ const RateList = ({ rates }) => (
       rates.map((rate) => <RateListItem key={rate.id} rate={rate} />)}
   </div>
 );
+
+RateList.propTypes = {
+  rates: PropTypes.object,
+};
 
 export default RateList;

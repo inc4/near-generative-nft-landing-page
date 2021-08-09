@@ -12,6 +12,22 @@
     flex-wrap: wrap;
   }
 
+  &__navigation {
+    margin-right: 150px;
+
+    @include for-small-desktop {
+      margin-right: 50px;
+    }
+  }
+
+  &__social {
+    margin-right: 56px;
+
+    @include for-small-desktop {
+      margin-right: 30px;
+    }
+  }
+
   &__logo {
     margin-right: 98px;
 

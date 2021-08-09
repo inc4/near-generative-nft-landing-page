@@ -6,7 +6,7 @@ import rarityData from './rarityData';
 import gradient from '../../assets/images/rarity-background-gradient.svg';
 
 const Rarity = () => (
-  <section className="rarity">
+  <section id="rarity" className="rarity">
     <div className="rarity__header">
       <h1 className="rarity__title">10,000 Nearkats... How rare is yours?</h1>
       <RateList rates={rarityData.rates} />

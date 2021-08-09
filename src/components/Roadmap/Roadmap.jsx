@@ -2,14 +2,20 @@ import React from 'react';
 import { ReactSVG } from 'react-svg';
 import bigCat from '../../assets/images/hero-big-cat.svg';
 import clouds from '../../assets/images/roadmap-background-clouds.svg';
-// import ellipseRight from '../../assets/images/roadmap-background-ellips-right.svg';
-// import ellipseLeft from '../../assets/images/roadmap-background-ellips-left.svg';
+import ellipseRight from '../../assets/images/roadmap-ellipse-right.svg';
+import ellipseLeft from '../../assets/images/roadmap-ellipse-left.svg';
 
 const Roadmap = () => (
-  <div className="roadmap">
+  <section id="roadmap" className="roadmap">
     <div className="roadmap__background">
-      <div className="roadmap__background-ellipse-right" />
-      <div className="roadmap__background-ellipse-left" />
+      <ReactSVG
+        className="roadmap__background-ellipse-left"
+        src={ellipseLeft}
+      />
+      <ReactSVG
+        className="roadmap__background-ellipse-right"
+        src={ellipseRight}
+      />
       <ReactSVG className="roadmap__background-clouds" src={clouds} />
     </div>
     <div className="roadmap__container">
@@ -67,7 +73,7 @@ const Roadmap = () => (
       </ul>
       <ReactSVG className="roadmap__icon" src={bigCat} />
     </div>
-  </div>
+  </section>
 );
 
 export default Roadmap;

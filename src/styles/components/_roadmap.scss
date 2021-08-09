@@ -1,5 +1,4 @@
 .roadmap {
-  font-weight: 500;
   background: rgba(226, 245, 255, 0.5);
   position: relative;
 
@@ -55,8 +54,6 @@
     }
 
     &-text {
-      font-weight: 500;
-      font-size: 14px;
       line-height: 21px;
     }
   }
@@ -82,25 +79,13 @@
 
     &-ellipse-left {
       position: absolute;
-      width: 1001.33px;
-      height: 638.56px;
-      left: -296px;
-      top: 165px;
-
-      background: linear-gradient(277.31deg, #e2f5ff 12.78%, #d7dbff 89.84%);
-      opacity: 0.5;
-      filter: blur(200px);
-      transform: rotate(-90deg);
+      left: 0;
     }
 
     &-ellipse-right {
-      width: 1001.33px;
-      height: 638.56px;
-      background: linear-gradient(277.31deg, #e2f5ff 12.78%, #ffece6 89.84%);
-      filter: blur(200px);
-      transform: rotate(-168.71deg);
       position: absolute;
       left: 50%;
+      transform: translate(-100px, -100px);
       top: 127px;
     }
 

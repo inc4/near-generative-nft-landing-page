@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 import PropTypes from 'prop-types';
@@ -15,8 +14,12 @@ RateListItem.defaultProps = {
   rate: PropTypes.object,
 };
 
-RateListItem.defaultProps = {
-  rate: {},
+RateListItem.propTypes = {
+  rate: PropTypes.shape({
+    count: PropTypes.string,
+    svgIcon: PropTypes.string,
+    text: PropTypes.string,
+  }),
 };
 
 export default RateListItem;
