@@ -2,7 +2,6 @@ import React from 'react';
 import { ReactSVG } from 'react-svg';
 import rightEllipse from '../../assets/images/faq-ellipse-right.svg';
 import leftEllipse from '../../assets/images/faq-ellipse-left.svg';
-// import faqKat from '../../assets/images/faq-kat.svg';
 
 const FAQ = () => (
   <div id="faq" className="faq__wrapper">
