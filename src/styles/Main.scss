@@ -1,0 +1,31 @@
+@import './utilities/variables';
+
+//Utilites
+
+@import './utilities/icons';
+@import './utilities/base';
+@import './utilities/mixins';
+
+// Layout
+@import './layout/layout';
+@import './layout/header';
+@import './layout/footer';
+
+// components
+@import './components/navigation';
+@import './components/social-links';
+@import './components/connect-wallet';
+@import './components/hero';
+@import './components/learn';
+@import './components/rarity';
+@import './components/rate-list';
+@import './components/rate-item';
+@import './components/nearkats-list';
+@import './components/nearkats-item';
+@import './components/generate';
+@import './components/roadmap';
+@import './components/faq';
+
+//pages
+@import './pages/home';
+@import './pages/about';

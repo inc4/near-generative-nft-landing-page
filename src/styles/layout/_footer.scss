@@ -1,0 +1,41 @@
+.footer {
+  color: $common-color;
+  line-height: 150%;
+  font-size: 16px;
+  font-weight: 500;
+
+  &__container {
+    width: 992px;
+    margin: auto;
+    padding: 104px 0 216px;
+  }
+
+  &__navigation {
+    margin-bottom: 58px;
+  }
+
+  .footer__social {
+    gap: 79px;
+    margin-bottom: 57px;
+  }
+
+  &__built {
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__logo {
+    margin-bottom: 34px;
+  }
+
+  &__text {
+    max-width: 340px;
+    margin-bottom: 100px;
+  }
+
+  &__copyright {
+    color: #c4c4c4;
+  }
+}

@@ -1,14 +1,20 @@
 {
-  "name": "near-kat-nft-landing",
+  "name": "template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-svg": "^14.0.7",
+    "sass": "^1.35.2",
+    "shortid": "^2.2.16",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -18,11 +24,9 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "@inc4/react"
   },
+  "prettier": "@inc4/prettier-config",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -34,5 +38,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@inc4/eslint-config-react": "1.0.1",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "prettier": "^2.3.2"
   }
 }

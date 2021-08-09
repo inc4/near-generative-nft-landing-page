@@ -1,0 +1,27 @@
+.nearkats-item {
+  position: relative;
+
+  &:last-child::after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    background: linear-gradient(
+      270deg,
+      #ffffff 26.85%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  &__img {
+    margin-bottom: 20px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+}
