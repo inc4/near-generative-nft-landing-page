@@ -1,10 +1,4 @@
 .navigation {
-  margin-right: 150px;
-
-  @include for-small-desktop {
-    margin-right: 50px;
-  }
-
   &__list {
     display: flex;
   }

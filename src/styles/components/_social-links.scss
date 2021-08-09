@@ -1,12 +1,7 @@
 .social-links {
   display: flex;
   gap: 29px;
-  margin-right: 56px;
   transition: all 0.3s ease-in-out;
-
-  @include for-small-desktop {
-    margin-right: 30px;
-  }
 
   &__item {
     &:hover {

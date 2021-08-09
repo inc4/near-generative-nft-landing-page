@@ -1,8 +1,9 @@
 .learn {
   display: flex;
   justify-content: space-between;
-  font-weight: 500;
   padding: 130px 0 170px;
+  width: 992px;
+  margin: auto;
 
   &__title {
     font-size: 36px;
@@ -17,5 +18,31 @@
     color: $common-color;
     margin-bottom: 16px;
     max-width: 345px;
+  }
+
+  &__picture {
+    position: relative;
+  }
+
+  &__img {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__background-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &__background-ellipse {
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 }

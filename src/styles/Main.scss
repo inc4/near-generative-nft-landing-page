@@ -1,13 +1,9 @@
-@import './utilities/variables';
-
 //Utilites
-
-@import './utilities/icons';
+@import './utilities/variables';
 @import './utilities/base';
 @import './utilities/mixins';
 
 // Layout
-@import './layout/layout';
 @import './layout/header';
 @import './layout/footer';
 
@@ -28,4 +24,3 @@
 
 //pages
 @import './pages/home';
-@import './pages/about';

@@ -3,7 +3,7 @@ import { ReactSVG } from 'react-svg';
 import generate from '../../assets/images/generate.svg';
 
 const Generate = () => (
-  <div className="generate">
+  <section className="generate">
     <div className="generate__container">
       <div className="generate__information">
         <h2 className="generate__title">Why generate one?</h2>
@@ -29,7 +29,7 @@ const Generate = () => (
 
       <ReactSVG className="generate__icon" src={generate} />
     </div>
-  </div>
+  </section>
 );
 
 export default Generate;

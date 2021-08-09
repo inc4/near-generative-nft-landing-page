@@ -1,7 +1,10 @@
 import React from 'react';
+import { ReactSVG } from 'react-svg';
+import circle from '../../assets/images/leran-background-circle.svg';
+import ellipse from '../../assets/images/leran-background-ellipse.svg';
 
 const Learn = () => (
-  <div className="learn">
+  <section id="learn" className="learn">
     <div className="learn__information">
       <h2 className="learn__title">Nearkats: Next Generation</h2>
       <p className="learn__text">
@@ -22,8 +25,16 @@ const Learn = () => (
         They have a variety of colors, characteristics, faces, and features.
       </p>
     </div>
-    <img src="./images/learn-cats-gourp.png" alt="cats group" />
-  </div>
+    <div className="learn__picture">
+      <img
+        className="learn__img"
+        src="./images/learn-kats-gourp.png"
+        alt="nearkats group"
+      />
+      <ReactSVG className="learn__background-circle" src={circle} />
+      <ReactSVG className="learn__background-ellipse" src={ellipse} />
+    </div>
+  </section>
 );
 
 export default Learn;
