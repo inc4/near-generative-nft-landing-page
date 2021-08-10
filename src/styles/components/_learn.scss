@@ -39,7 +39,6 @@
     position: relative;
 
     @include for-phone {
-      width: 300px;
       height: fit-content;
     }
   }
@@ -62,7 +61,7 @@
 
     @include for-phone {
       svg {
-        width: 300px;
+        width: 100%;
       }
     }
   }
@@ -76,8 +75,10 @@
     z-index: 1;
 
     @include for-phone {
+      width: 100%;
+
       svg {
-        width: 300px;
+        width: 100%;
       }
     }
   }
