@@ -1,6 +1,10 @@
 .hero {
   padding: 130px 0 259px;
 
+  @include for-phone {
+    padding: 50px 0 100px;
+  }
+
   &__container {
     position: relative;
     color: $common-color;
