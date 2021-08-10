@@ -3,3 +3,27 @@
     @content;
   }
 }
+
+@mixin for-laptop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-phone {
+  @media (max-width: 578px) {
+    @content;
+  }
+}
+
+@mixin for-small-phone {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
