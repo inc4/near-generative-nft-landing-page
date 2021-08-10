@@ -1,4 +1,8 @@
 .rate-list {
   display: flex;
-  margin-left: 70px;
+
+  @include for-laptop {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
