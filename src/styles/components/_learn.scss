@@ -5,6 +5,21 @@
   width: 992px;
   margin: auto;
 
+  @include for-laptop {
+    width: 100%;
+    padding: 130px 30px 170px;
+  }
+
+  @include for-tablet {
+    padding: 50px 30px 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include for-phone {
+    padding: 50px 20px 100px;
+  }
+
   &__title {
     font-size: 36px;
     line-height: 115%;
@@ -22,11 +37,20 @@
 
   &__picture {
     position: relative;
+
+    @include for-phone {
+      width: 300px;
+      height: fit-content;
+    }
   }
 
   &__img {
     position: relative;
     z-index: 10;
+
+    @include for-phone {
+      width: 100%;
+    }
   }
 
   &__background-circle {
@@ -35,6 +59,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+
+    @include for-phone {
+      svg {
+        width: 300px;
+      }
+    }
   }
 
   &__background-ellipse {
@@ -44,5 +74,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+
+    @include for-phone {
+      svg {
+        width: 300px;
+      }
+    }
   }
 }

@@ -1,6 +1,10 @@
 .hero {
   padding: 130px 0 259px;
 
+  @include for-phone {
+    padding: 50px 0 100px;
+  }
+
   &__container {
     position: relative;
     color: $common-color;
@@ -11,6 +15,15 @@
     margin: auto;
     position: relative;
     padding-bottom: 46px;
+
+    @include for-laptop {
+      padding: 0 30px 46px;
+      width: 100%;
+    }
+
+    @include for-phone {
+      padding: 0 20px 70px;
+    }
   }
 
   &__title {
@@ -28,6 +41,10 @@
     line-height: 150%;
     max-width: 484px;
     margin-bottom: 14px;
+
+    @include for-phone {
+      max-width: unset;
+    }
 
     &_red {
       color: #cb015b;
@@ -61,6 +78,25 @@
     z-index: 5;
     right: 0;
     bottom: -80px;
+
+    @include for-laptop {
+      svg {
+        width: 300px;
+        height: auto;
+      }
+    }
+
+    @include for-tablet {
+      svg {
+        width: 200px;
+      }
+    }
+
+    @include for-phone {
+      svg {
+        width: 150px;
+      }
+    }
   }
 
   &__background {

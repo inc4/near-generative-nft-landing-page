@@ -1,10 +1,23 @@
 .navigation {
   &__list {
     display: flex;
+
+    @include for-small-phone {
+      gap: 10px;
+    }
   }
 
   &__list-item {
     min-width: 102px;
+
+    @include for-tablet {
+      min-width: 70px;
+    }
+
+    @include for-small-phone {
+      min-width: unset;
+      width: fit-content;
+    }
   }
 
   &__link {
