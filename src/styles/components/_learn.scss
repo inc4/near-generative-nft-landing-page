@@ -16,6 +16,10 @@
     justify-content: center;
   }
 
+  @include for-phone {
+    padding: 50px 20px 100px;
+  }
+
   &__title {
     font-size: 36px;
     line-height: 115%;
