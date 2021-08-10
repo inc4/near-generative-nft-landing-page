@@ -12,11 +12,22 @@
     flex-wrap: wrap;
   }
 
+  @include for-tablet {
+    padding: 20px;
+    gap: 20px;
+  }
+
   &__navigation {
     margin-right: 150px;
 
     @include for-small-desktop {
       margin-right: 50px;
+    }
+
+    li {
+      @include for-tablet {
+        min-width: 60px;
+      }
     }
   }
 
@@ -25,6 +36,10 @@
 
     @include for-small-desktop {
       margin-right: 30px;
+    }
+
+    @include for-tablet {
+      margin-right: unset;
     }
   }
 
