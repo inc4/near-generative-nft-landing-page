@@ -24,10 +24,8 @@
       margin-right: 50px;
     }
 
-    li {
-      @include for-tablet {
-        min-width: 60px;
-      }
+    @include for-tablet {
+      margin-right: 0;
     }
   }
 
@@ -39,7 +37,7 @@
     }
 
     @include for-tablet {
-      margin-right: unset;
+      margin-right: 0;
     }
   }
 
@@ -48,6 +46,10 @@
 
     @include for-small-desktop {
       margin-right: 40px;
+    }
+
+    @include for-tablet {
+      margin-right: 0;
     }
   }
 }
