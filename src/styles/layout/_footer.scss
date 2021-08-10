@@ -7,15 +7,28 @@
     width: 992px;
     margin: auto;
     padding: 52px 0 216px;
+
+    @include for-laptop {
+      width: 100%;
+      padding: 50px 20px 100px;
+    }
   }
 
   &__navigation {
     margin-bottom: 58px;
+
+    @include for-tablet {
+      margin-bottom: 40px;
+    }
   }
 
   .footer__social {
     gap: 79px;
     margin-bottom: 57px;
+
+    @include for-tablet {
+      margin-bottom: 40px;
+    }
   }
 
   &__built {
@@ -32,6 +45,10 @@
   &__text {
     max-width: 340px;
     margin-bottom: 100px;
+
+    @include for-tablet {
+      margin-bottom: 40px;
+    }
   }
 
   &__copyright {
