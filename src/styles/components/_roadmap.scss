@@ -8,6 +8,10 @@
     position: relative;
     z-index: 10;
     padding: 200px 0 159px;
+
+    @include for-tablet {
+      padding: 50px 20px 100px;
+    }
   }
 
   &__title {
@@ -23,6 +27,10 @@
     padding-left: 41px;
     color: $common-color;
     position: relative;
+
+    @include for-tablet {
+      width: 100%;
+    }
 
     &::after {
       content: '';
@@ -64,9 +72,26 @@
     bottom: -50px;
     transform: translateX(100%);
 
+    @include for-small-desktop {
+      transform: translate(0);
+    }
+
+    @include for-laptop {
+      right: 0;
+    }
+
     svg {
       width: 274px;
       height: fit-content;
+
+      @include for-small-desktop {
+        width: 200px;
+        height: auto;
+      }
+
+      @include for-tablet {
+        width: 150px;
+      }
     }
   }
 
