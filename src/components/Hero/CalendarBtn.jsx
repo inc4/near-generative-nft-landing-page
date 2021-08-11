@@ -5,14 +5,14 @@ const CalendarBtn = ({ className }) => (
   <button
     type="button"
     title="Add to Calendar"
-    className={`addeventatc ${className}`}
+    className={`calendar-btn addeventatc ${className}`}
   >
     + Add to your Calendar
-    <span className="start">08/16/2021 08:00 AM</span>
-    <span className="end">08/16/2021 10:00 AM</span>
-    <span className="timezone">America/Los_Angeles</span>
-    <span className="title">Nearkats: Next Generation</span>
-    <span className="description">
+    <span className="start calendar-btn__span">08/16/2021 08:00 AM</span>
+    <span className="end calendar-btn__span">08/16/2021 10:00 AM</span>
+    <span className="timezone calendar-btn__span">America/Los_Angeles</span>
+    <span className="title calendar-btn__span">Nearkats: Next Generation</span>
+    <span className="description calendar-btn__span">
       Now you can own some of the cutest critters in the Metaverse.
       <br />
       <br />

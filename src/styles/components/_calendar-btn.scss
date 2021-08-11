@@ -1,0 +1,36 @@
+.calendar-btn {
+  &__span {
+    display: none;
+  }
+
+  .addeventatc_icon {
+    display: none;
+  }
+
+  &.addeventatc {
+    font-family: $common-font;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: $purpure-color !important;
+    padding: 18px 40px;
+    text-align: center;
+    background: #ffffff;
+    border: 2px solid #6b6ef9;
+    border-radius: 56px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 0px 10px 4px rgba(107, 110, 249, 0.2) !important;
+      background: $white;
+      font-size: 16px;
+    }
+
+    &:active {
+      border-width: 2px;
+    }
+  }
+}
