@@ -37,6 +37,7 @@
 
   &__picture {
     position: relative;
+    pointer-events: none;
 
     @include for-phone {
       height: fit-content;
