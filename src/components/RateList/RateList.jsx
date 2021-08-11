@@ -10,7 +10,7 @@ const RateList = ({ rates }) => (
 );
 
 RateList.propTypes = {
-  rates: PropTypes.object,
+  rates: PropTypes.array,
 };
 
 export default RateList;
