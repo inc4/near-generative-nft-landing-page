@@ -28,5 +28,9 @@
       background: $white;
       font-size: 16px;
     }
+
+    &:active {
+      border-width: 2px;
+    }
   }
 }
