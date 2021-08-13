@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Navigation = ({ className }) => {
+const Navigation = ({ className, signedIn }) => {
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -56,6 +56,18 @@ const Navigation = ({ className }) => {
             Roadmap
           </a>
         </li>
+        {signedIn && (
+          <li className="navigation__list-item">
+            <a
+              className="navigation__link"
+              onClick={handleClick}
+              data-href="roadmap"
+              href="#roadmap"
+            >
+              My NFTs
+            </a>
+          </li>
+        )}
       </ul>
     </nav>
   );
@@ -63,6 +75,7 @@ const Navigation = ({ className }) => {
 
 Navigation.propTypes = {
   className: PropTypes.string,
+  signedIn: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
