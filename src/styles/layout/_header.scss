@@ -5,11 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 
   @include for-small-desktop {
     padding: 36px;
     flex-wrap: wrap;
+  }
+
+  @include for-laptop {
+    flex-direction: column;
   }
 
   @include for-tablet {
@@ -18,15 +22,7 @@
   }
 
   &__navigation {
-    margin-right: 150px;
-
-    @include for-small-desktop {
-      margin-right: 50px;
-    }
-
-    @include for-tablet {
-      margin-right: 0;
-    }
+    flex-grow: 2;
   }
 
   &__social {
@@ -36,21 +32,13 @@
       margin-right: 30px;
     }
 
-    @include for-tablet {
+    @include for-laptop {
       margin-right: 0;
     }
   }
 
   &__logo {
-    margin-right: 98px;
-
-    @include for-small-desktop {
-      margin-right: 40px;
-    }
-
-    @include for-tablet {
-      margin-right: 0;
-    }
+    flex-grow: 1;
   }
 
   &__wallet {
@@ -59,7 +47,7 @@
     justify-content: center;
     letter-spacing: 0.01em;
     color: $purpure-color;
-    font-family: "Manrope", sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: bold;
     font-size: 16px;
   }

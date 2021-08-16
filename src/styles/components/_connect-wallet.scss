@@ -1,16 +1,4 @@
 .connect-wallet {
-  height: 100%;
-  width: 100%;
-  padding: 18px;
-  text-align: center;
-  letter-spacing: 0.01em;
-  color: $purpure-color;
-  font-family: $common-font;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 140%;
-  width: 200px;
-  min-width: 200px;
   background: #ffffff;
   border: 2px solid #6b6ef9;
   backdrop-filter: blur(32px);
@@ -20,5 +8,38 @@
   &:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 4px rgba(107, 110, 249, 0.2);
+  }
+
+  &__text {
+    text-align: center;
+    padding: 18px;
+    height: 100%;
+    letter-spacing: 0.01em;
+    color: $purpure-color;
+    font-family: $common-font;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 140%;
+    width: fit-content;
+    min-width: 200px;
+
+    &-name {
+      &::after {
+        content: 'Log Out';
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        color: $common-color;
+        opacity: 0;
+        font-size: 12px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 0.6;
+      }
+    }
   }
 }

@@ -1,7 +1,7 @@
 .hero {
   padding: 130px 0 259px;
 
-  @include for-phone {
+  @include for-tablet {
     padding: 50px 0 100px;
   }
 
