@@ -13,7 +13,7 @@ const SocialLinks = ({ className }) => (
     >
       <ReactSVG className="social-links__item" src={socialFace} />
     </a>
-    <a href="#twitter" rel="noopener noreferrer">
+    <a href="https://twitter.com/NEARProtocol" rel="noopener noreferrer">
       <ReactSVG className="social-links__item" src={socialTwitter} />
     </a>
   </div>
