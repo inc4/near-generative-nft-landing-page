@@ -11,19 +11,6 @@ const Header = () => {
   const { state } = useContext(appStore);
   const { wallet, account } = state;
 
-  const getWalletName = () => (
-    <div className="header__wallet">
-      <span className="header__wallet-name">{account.accountId}</span>
-      <button
-        type="button"
-        className="header__wallet-logout"
-        onClick={() => wallet.signOut()}
-      >
-        Log Out
-      </button>
-    </div>
-  );
-
   if (!wallet) {
     return <Loader />;
   }
@@ -34,7 +21,10 @@ const Header = () => {
       <Navigation className="header__navigation" signedIn={wallet.signedIn} />
       <SocialLinks className="header__social" />
       {account?.accountId ? (
-        getWalletName()
+        <ConnectWalletBtn
+          text={account.accountId}
+          handleClick={() => wallet.signOut()}
+        />
       ) : (
         <ConnectWalletBtn handleClick={() => wallet.signIn()} />
       )}
