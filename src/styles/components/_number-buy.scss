@@ -1,0 +1,16 @@
+.number-buy {
+  border-radius: 100px;
+  width: 78px;
+  height: 78px;
+  background: #54c4f6;
+  font-size: 20px;
+  line-height: 115%;
+
+  &__many {
+    background: #281a6f;
+  }
+
+  &__active {
+    border: 4px solid grey;
+  }
+}
