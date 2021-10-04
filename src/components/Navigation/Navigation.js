@@ -46,11 +46,18 @@ const Navigation = ({ className, signedIn }) => (
         </Link>
       </li>
       {signedIn && (
-        <li className="navigation__list-item">
-          <Link to="/my-nfts" className="navigation__link">
-            My NFTs
-          </Link>
-        </li>
+        <>
+          <li className="navigation__list-item">
+            <Link to="/my-nfts" className="navigation__link">
+              My NFTs
+            </Link>
+          </li>
+          <li className="navigation__list-item">
+            <Link to="/link-drop" className="navigation__link">
+              LinkDrop
+            </Link>
+          </li>
+        </>
       )}
     </ul>
   </nav>
@@ -63,6 +70,7 @@ Navigation.propTypes = {
 
 Navigation.defaultProps = {
   className: '',
+  signedIn: false,
 };
 
 export default Navigation;
