@@ -5,15 +5,15 @@
   z-index: 1;
 
   &__container {
-    width: 992px;
+    width: 1092px;
     margin: auto;
     padding: 170px 0 210px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    gap: 40px;
 
     @include for-small-desktop {
-      padding: 170px 20px 210px;
+      padding: 139px 20px 150px;
     }
 
     @include for-tablet {
@@ -24,9 +24,9 @@
   }
 
   &__information {
-    max-width: 345px;
+    max-width: 350px;
     color: #c4c4c4;
-    padding-top: 30px;
+    margin-top: 20px;
   }
 
   &__title {
@@ -55,10 +55,18 @@
     list-style-type: disc;
   }
 
-  &__icon {
-    svg {
+  &__price-text {
+    margin-top: 80px;
+    line-height: 150%;
+  }
+
+  &__img {
+    width: 450px;
+    margin-right: 30px;
+    margin-left: 100px;
+
+    @include for-phone {
       width: 100%;
-      height: auto;
     }
   }
 }
