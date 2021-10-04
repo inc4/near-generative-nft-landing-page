@@ -1,0 +1,26 @@
+.buy {
+  background-color: $common-color;
+  color: $white;
+  padding: 60px 20px;
+
+  &__data {
+    width: 1180px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+
+    @include for-laptop {
+      width: unset;
+      margin: unset;
+    }
+
+    > * {
+      width: 310px;
+    }
+  }
+
+  &__nft {
+    margin-left: 20px;
+  }
+}

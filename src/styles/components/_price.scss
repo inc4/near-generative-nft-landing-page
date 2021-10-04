@@ -1,0 +1,20 @@
+.price {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background-color: $common-color;
+  padding-left: 3px;
+
+  &__near {
+    margin-top: -10px;
+    font-size: 24px;
+    line-height: 150%;
+    color: $burgundy;
+  }
+
+  &__count {
+    font-size: 48px;
+    line-height: 150%;
+    color: $white;
+  }
+}
