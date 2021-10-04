@@ -1,0 +1,55 @@
+.generate-block {
+  color: $white;
+  margin-bottom: 49px;
+  display: flex;
+  gap: 30px;
+  position: relative;
+
+  &__button {
+    max-width: 200px;
+  }
+
+  &__line {
+    height: 1px;
+    width: 350px;
+    left: 20px;
+    top: 50%;
+    position: absolute;
+    opacity: 0.5;
+    border-top: 3px dashed #c4c4c4;
+    z-index: -1;
+  }
+
+  &__vertical-line {
+    height: 80px;
+    width: 1px;
+    top: 50px;
+    left: 55px;
+    position: absolute;
+    opacity: 0.5;
+    border-left: 3px dashed #c4c4c4;
+    z-index: -1;
+  }
+
+  &__price {
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 20px;
+  }
+
+  &__near {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $burgundy;
+    margin-top: 15px;
+  }
+
+  &__count {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 150%;
+    color: $white;
+  }
+}

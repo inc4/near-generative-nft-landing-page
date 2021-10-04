@@ -1,0 +1,41 @@
+.generate-sold-out {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px;
+  align-items: center;
+  margin-bottom: 70px;
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    padding: 24px 47px;
+    background-color: $burgundy;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 115%;
+    color: $white;
+    box-shadow: 0px 0px 30px $burgundy;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $burgundy-hover;
+      box-shadow: 0px 0px 30px $burgundy-hover;
+    }
+
+    @include for-phone {
+      padding: 14px 30px;
+    }
+  }
+
+  &__text {
+    font-size: 50px;
+    line-height: 115%;
+    color: $white;
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+  }
+}
