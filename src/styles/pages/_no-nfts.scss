@@ -1,0 +1,50 @@
+.no-nfts {
+  padding: 60px 20px 100px;
+  background-color: $common-color;
+  color: $white;
+
+  &__data {
+    width: 1012px;
+    margin: auto;
+  }
+
+  &__data-top {
+    display: flex;
+    gap: 70px;
+  }
+
+  &__title {
+    font-size: 50px;
+    line-height: 115%;
+    margin-bottom: 60px;
+    margin-top: 68px;
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 115%;
+    margin-bottom: 60px;
+
+    &-red {
+      color: $burgundy;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__img {
+    svg {
+      width: 280px;
+      height: auto;
+    }
+  }
+
+  &__sold-out {
+    margin-top: 60px;
+    gap: 70px;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,14 @@
+.shareable-circle {
+  border-radius: 100px;
+  border: 2px solid $white;
+  outline: 1px solid $purpure-color;
+  width: 20px;
+  height: 20px;
+  background-color: $white;
+  margin-right: 5px;
+  transition: all 0.3s ease-in-out;
+
+  &__active {
+    background-color: $purpure-color;
+  }
+}

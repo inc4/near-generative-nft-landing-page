@@ -1,5 +1,48 @@
 .nft-item-info {
-  width: 200px;
-  height: 200px;
-  background-color: wheat;
+  background-color: $white;
+  padding: 17px;
+  border-radius: 5px;
+  display: flex;
+  gap: 34px;
+  pointer-events: none;
+  font-size: 10px;
+  line-height: 200%;
+
+  &__icon-wrapper {
+    position: relative;
+  }
+
+  &__icon {
+    svg {
+      width: 144px;
+      height: 144px;
+      border-radius: 100px;
+    }
+  }
+
+  &__rarity {
+    position: absolute;
+    right: -10px;
+    top: 90px;
+    background-color: $white;
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    line-height: 0;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__number {
+    margin-top: 26px;
+    text-align: center;
+  }
 }

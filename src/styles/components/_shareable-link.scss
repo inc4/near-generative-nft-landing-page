@@ -1,0 +1,41 @@
+.shareable-link {
+  padding: 4px;
+  padding: 15px;
+  background-color: $white;
+  font-size: 14px;
+  line-height: 19px;
+  color: $secondary-color;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+
+  &__text {
+    overflow: hidden;
+    min-width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__copied {
+    position: absolute;
+    padding: 5px 15px;
+    background-color: $purpure-color;
+    border-radius: 100px;
+    color: $white;
+    font-size: 12px;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__animation {
+    opacity: 1;
+    top: 10px;
+  }
+}
