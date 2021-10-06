@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import { ReactSVG } from 'react-svg';
 import { appStore } from '../../state/app';
@@ -15,7 +14,6 @@ const Footer = () => {
       <div className="footer__container">
         <Navigation className="footer__navigation" signedIn={wallet.signedIn} />
         <SocialLinks className="footer__social" />
-        {console.log('wallet = ', wallet)}
 
         <p className="footer__built">Built on</p>
         <ReactSVG className="footer__logo" src={logo} />

@@ -7,6 +7,8 @@ import GenerateCountBtn from '../GenerateCountBtn';
 
 const GenerateBlock = () => {
   const { state } = useContext(appStore);
+  console.log('state: ', state);
+
   const { wallet } = state;
   const history = useHistory();
 
@@ -25,10 +27,16 @@ const GenerateBlock = () => {
 
   const handleClick = () => {
     history.push('/#generate');
+
     if (!wallet.signedIn) {
       wallet.signIn();
     } else if (!active) {
       setShowMessage(true);
+    } else {
+      // TODO
+      const nftMintOne =
+        active === 1 ? 'contract.nft_mint_one' : 'contract.nft_mint_many';
+      console.log('nftMintOne', nftMintOne);
     }
   };
 
