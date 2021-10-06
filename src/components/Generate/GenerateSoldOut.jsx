@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const GenerateSoldOut = () => (
-  <div className="generate-sold-out">
+const GenerateSoldOut = ({ className }) => (
+  <div className={`generate-sold-out ${className || ''}`}>
     <p className="generate-sold-out__text">SoldOut</p>
     <a
       className="generate-sold-out__link"
@@ -18,5 +19,13 @@ const GenerateSoldOut = () => (
     </a>
   </div>
 );
+
+GenerateSoldOut.propTypes = {
+  className: PropTypes.string,
+};
+
+GenerateSoldOut.defaultProps = {
+  className: '',
+};
 
 export default GenerateSoldOut;
