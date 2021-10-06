@@ -1,0 +1,43 @@
+.share-social-links {
+  &__red {
+    svg {
+      border-radius: 100px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    path {
+      fill: $burgundy;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 0 0 30px $burgundy;
+      }
+
+      path {
+        fill: $burgundy-hover;
+      }
+    }
+  }
+
+  &__blue {
+    svg {
+      border-radius: 100px;
+      transition: all 0.2s ease-in-out;
+    }
+    path {
+      fill: $purpure-color;
+    }
+
+    &:hover {
+      svg {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px $purpure-color;
+      }
+    }
+  }
+}

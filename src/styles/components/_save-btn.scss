@@ -1,0 +1,36 @@
+.save-btn {
+  font-size: 16px;
+  line-height: 22px;
+  color: $white;
+  background-color: $purpure-color;
+  padding: 5px 30px;
+  border-radius: 100px;
+  width: fit-content;
+  margin-left: auto;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px $purpure-color;
+  }
+
+  &__saved {
+    position: absolute;
+    padding: 5px 15px;
+    background-color: $purpure-color;
+    border-radius: 100px;
+    color: $white;
+    font-size: 12px;
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__animation {
+    opacity: 1;
+    top: -35px;
+  }
+}

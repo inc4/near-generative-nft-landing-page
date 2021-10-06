@@ -1,0 +1,80 @@
+.link-drop {
+  position: relative;
+  overflow: hidden;
+
+  &__data-wrapper {
+    position: relative;
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    width: 100%;
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  &__data {
+    margin: auto;
+    width: 1000px;
+    padding: 60px 20px 60px;
+  }
+
+  &__header {
+    font-size: 50px;
+    line-height: 115%;
+    color: $secondary-color;
+    margin-bottom: 50px;
+
+    &-red {
+      color: $burgundy;
+    }
+  }
+
+  &__center {
+    width: fit-content;
+    display: flex;
+    gap: 150px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 30px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__circle {
+    border-radius: 100px;
+    border: 2px solid white;
+    outline: 1px solid $purpure-color;
+    width: 20px;
+    height: 20px;
+    background-color: $purpure-color;
+    margin-right: 5px;
+  }
+
+  &__save {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__share-links {
+    display: flex;
+    gap: 18px;
+  }
+}
