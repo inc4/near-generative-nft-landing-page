@@ -1,9 +1,9 @@
 .my-nfts {
+  background: rgba(226, 245, 255, 0.5);
   &__data {
     padding: 60px 20px;
     width: 1012px;
     margin: auto;
-    background: rgba(226, 245, 255, 0.5);
 
     @include for-laptop {
       width: unset;

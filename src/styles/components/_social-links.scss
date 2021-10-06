@@ -1,9 +1,10 @@
 .social-links {
   display: flex;
   gap: 20px;
-  transition: all 0.3s ease-in-out;
 
   &__item {
+    transition: all 0.2s ease-in-out;
+
     &:hover {
       cursor: pointer;
       transform: scale(1.1);
