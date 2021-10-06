@@ -34,7 +34,15 @@
 @import './components/generate-block';
 @import './components/generate-sold-out';
 @import './components/generate-count-btn';
+@import './components/share-social-links';
+@import './components/shareable-link';
+@import './components/shareable-input';
+@import './components/shareable-circle';
+@import './components/save-btn';
 
 //pages
 @import './pages/home';
 @import './pages/my-nfts';
+@import './pages/no-nfts';
+@import './pages/link-drop';
+@import './pages/reveal';
