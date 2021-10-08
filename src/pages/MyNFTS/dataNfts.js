@@ -14,7 +14,7 @@ import rare from '../../assets/images/rarity-rare.svg';
 const katArr = [kat1, kat2, kat3, kat4];
 const rarityArr = [veryRare, uncommon, superRare, common, rare];
 
-function dataGenerate(count) {
+export function dataGenerate(count) {
   const arr = [];
   for (let i = 0; i < count; i += 1)
     arr.push({
@@ -22,9 +22,21 @@ function dataGenerate(count) {
       icon: katArr[Math.round(Math.random() * 3)],
       number: '#0123456789',
       rarity: rarityArr[Math.round(Math.random() * 4)],
+      token_id: '2446',
+      reveal: false,
     });
 
   return arr;
 }
 
-export default dataGenerate(25);
+export function linkGenerate(count, number) {
+  const arr = [];
+  for (let i = 0; i < count; i += 1)
+    arr.push({
+      key: id(),
+      link: `https://genc.win/?ref_id=VEDZHXYCS${number + i}`,
+      text: '',
+    });
+
+  return arr;
+}

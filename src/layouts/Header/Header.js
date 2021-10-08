@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import { ReactSVG } from 'react-svg';
 import { appStore } from '../../state/app';
 import logo from '../../assets/images/nearkat-logo.svg';
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

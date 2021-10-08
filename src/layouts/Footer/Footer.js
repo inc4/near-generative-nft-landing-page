@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+/* eslint-disable no-console */
+import React, { useContext, memo } from 'react';
 import { ReactSVG } from 'react-svg';
 import { appStore } from '../../state/app';
 import Navigation from '../../components/Navigation';
@@ -32,4 +33,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
