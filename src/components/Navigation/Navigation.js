@@ -6,42 +6,22 @@ const Navigation = ({ className, signedIn }) => (
   <nav className={`navigation ${className || ''}`}>
     <ul className="navigation__list">
       <li className="navigation__list-item">
-        <Link
-          to="/#learn"
-          className="navigation__link"
-          data-href="learn"
-          href="#learn"
-        >
+        <Link to="/#learn" className="navigation__link">
           Learn
         </Link>
       </li>
       <li className="navigation__list-item">
-        <Link
-          to="/#rarity"
-          className="navigation__link"
-          data-href="rarity"
-          href="#rarity"
-        >
+        <Link to="/#rarity" className="navigation__link">
           Rarity
         </Link>
       </li>
       <li className="navigation__list-item">
-        <Link
-          to="/#faq"
-          className="navigation__link"
-          data-href="faq"
-          href="#faq"
-        >
+        <Link to="/#faq" className="navigation__link">
           FAQ
         </Link>
       </li>
       <li className="navigation__list-item">
-        <Link
-          to="/#roadmap"
-          className="navigation__link"
-          data-href="roadmap"
-          href="#roadmap"
-        >
+        <Link to="/#roadmap" className="navigation__link">
           Roadmap
         </Link>
       </li>

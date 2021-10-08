@@ -1,17 +1,21 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ShareableCircle = () => {
-  const [active, setActive] = useState(false);
-  const toggle = () => setActive(!active);
+const ShareableCircle = ({ activeLinkForShare, index, onClick }) => (
+  <button
+    type="button"
+    onClick={() => onClick(index)}
+    className={`shareable-circle ${
+      index === activeLinkForShare ? 'shareable-circle__active' : ''
+    }`}
+  ></button>
+);
 
-  return (
-    <button
-      type="button"
-      onClick={toggle}
-      className={`shareable-circle ${active ? 'shareable-circle__active' : ''}`}
-    ></button>
-  );
+ShareableCircle.propTypes = {
+  activeLinkForShare: PropTypes.number,
+  index: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 export default ShareableCircle;

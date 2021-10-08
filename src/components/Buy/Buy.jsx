@@ -1,37 +1,51 @@
-/* eslint-disable no-console */
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
 import BuyMore from './BuyMore';
-import BuyContext from '../../Contexts/BuyContext';
+import GenerateSoldOut from '../Generate/GenerateSoldOut';
 
-const Buy = () => {
-  const [count, setCount] = useState();
-  const [kind, setKind] = useState('');
+const Buy = ({ soldOut }) => {
   const history = useHistory();
-
-  const handleClick = (e) => {
-    setCount(+e.target.innerText);
-    setKind(e.target.dataset.kind);
-  };
 
   const goToLinkDrop = () => history.push('/link-drop');
 
   return (
-    <BuyContext.Provider value={{ count, setCount, kind, handleClick }}>
-      <div className="buy">
-        <div className="buy__data">
-          <BuyMore />
-          <BuyMore kind="gift" />
-          <BuyMoreBtn
-            text="Send an NFT"
-            className="buy__nft"
-            onClick={goToLinkDrop}
-          />
-        </div>
+    <div className="buy">
+      <div className="buy__data">
+        {!soldOut ? (
+          <>
+            <BuyMore />
+            <BuyMore kind="gift" />
+            <BuyMoreBtn
+              text="Send an NFT"
+              className="buy__nft"
+              onClick={goToLinkDrop}
+            />
+          </>
+        ) : (
+          <div className="buy__sold-out-wrapper">
+            <div>
+              <img
+                className="buy__image"
+                src="./images/generate-background.png"
+                alt="sold out background"
+              />
+            </div>
+            <GenerateSoldOut className="buy__sold-out" />
+          </div>
+        )}
       </div>
-    </BuyContext.Provider>
+    </div>
   );
+};
+
+Buy.propTypes = {
+  soldOut: PropTypes.bool,
+};
+
+Buy.defaultProps = {
+  soldOut: false,
 };
 
 export default Buy;

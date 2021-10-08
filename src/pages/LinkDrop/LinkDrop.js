@@ -1,8 +1,11 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { ReactSVG } from 'react-svg';
+import { appStore } from '../../state/app';
 import ShareSocialLinks from '../../components/ShareSocialLinks';
 import Buy from '../../components/Buy';
+import NoNfts from '../../components/NoNfts/NoNfts';
 import bigCat from '../../assets/images/hero-big-cat.svg';
 import background from '../../assets/images/link-drop-background.svg';
 import ShareableLink from './ShareableLink';
@@ -10,52 +13,96 @@ import ShareableInput from './ShareableInput';
 import ShareableCircle from './ShareableCircle';
 import SaveBtn from './SaveBtn/SaveBtn';
 
-const LinkDrop = () => (
-  <div className="link-drop">
-    <div className="link-drop__data-wrapper">
-      <ReactSVG src={background} className="link-drop__background" />
+const LinkDrop = () => {
+  const history = useHistory();
 
-      <div className="link-drop__data">
-        <header className="link-drop__header">
-          <span className="link-drop__header-red">Share</span> a mystery{' '}
-          <span className="link-drop__header-red">NFT</span> with your friend
-        </header>
+  const { state } = useContext(appStore);
+  const { app } = state;
 
-        <div className="link-drop__center">
-          <div>
-            <ul className="link-drop__list">
-              <li className="link-drop__item">
-                <ShareableCircle />
-                <ShareableLink link="https://genc.win/?ref_id=VEDZHXYCSsdmfld" />
-                <ShareableInput />
-              </li>
-              <li className="link-drop__item">
-                <ShareableCircle />
-                <ShareableLink link="https://genc.win/?ref_id=ABYTMDDPE" />
-                <ShareableInput />
-              </li>
-              <li className="link-drop__item">
-                <ShareableCircle />
-                <ShareableLink link="https://genc.win/?ref_id=YYCHYBETU" />
-                <ShareableInput />
-              </li>
-            </ul>
-            <div className="link-drop__save">
-              <SaveBtn />
+  const [linksNearkats, setLinsNearkats] = useState(app.linksNearkats);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!localStorage.undefined_wallet_auth_key) {
+      history.push('/');
+    }
+  });
+
+  const handleChange = (e) => {
+    console.log('handleChange =', e.target.value);
+    const text = e.target.value;
+    const dataIndex = +e.target.dataset.index;
+    console.log('dataIndex', dataIndex);
+    setLinsNearkats(
+      linksNearkats.map((item, index) =>
+        dataIndex === index ? { ...item, text } : item,
+      ),
+    );
+  };
+
+  const handleCircleClick = (index) => {
+    setActiveIndex(index);
+  };
+
+  return app.linksNftsCount ? (
+    <div className="link-drop">
+      <div className="link-drop__data-wrapper" id="share-nft">
+        <ReactSVG src={background} className="link-drop__background" />
+
+        <div className="link-drop__data">
+          <header className="link-drop__header">
+            <span className="link-drop__header-red">Share</span> a mystery{' '}
+            <span className="link-drop__header-red">NFT</span> with your friend
+          </header>
+
+          <div className="link-drop__center">
+            <div>
+              <ul className="link-drop__list">
+                {linksNearkats.map((item, index) => (
+                  <li className="link-drop__item" key={item.key}>
+                    <ShareableCircle
+                      activeLinkForShare={activeIndex}
+                      onClick={handleCircleClick}
+                      index={index}
+                    />
+                    <ShareableLink link={item.link} />
+                    <ShareableInput
+                      text={item.text}
+                      index={index}
+                      onChange={handleChange}
+                    />
+                  </li>
+                ))}
+              </ul>
+              <div className="link-drop__save">
+                <SaveBtn
+                  onClick={() => {
+                    console.log('Save: linksNearkats', linksNearkats);
+                    localStorage.setItem(
+                      'linksNearkats',
+                      JSON.stringify(linksNearkats),
+                    );
+                  }}
+                />
+              </div>
+
+              <ShareSocialLinks
+                color="purpure"
+                className="link-drop__share-links"
+                text={linksNearkats[activeIndex]?.text}
+                link={linksNearkats[activeIndex]?.link}
+              />
             </div>
-
-            <ShareSocialLinks
-              color="purpure"
-              className="link-drop__share-links"
-            />
+            <ReactSVG src={bigCat} />
           </div>
-          <ReactSVG src={bigCat} />
         </div>
       </div>
-    </div>
 
-    <Buy />
-  </div>
-);
+      <Buy />
+    </div>
+  ) : (
+    <NoNfts soldOut={app.soldOut} />
+  );
+};
 
 export default LinkDrop;

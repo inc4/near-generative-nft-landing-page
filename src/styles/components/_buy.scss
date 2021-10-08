@@ -23,4 +23,23 @@
   &__nft {
     margin-left: 20px;
   }
+
+  &__sold-out-wrapper {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    width: fit-content !important;
+    margin: auto;
+  }
+
+  &__sold-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 400px;
+    height: auto;
+  }
 }

@@ -1,9 +1,13 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { useContext } from 'react';
 import GenerateSoldOut from './GenerateSoldOut';
 import GenerateBlock from './GenerateBlock';
+import { appStore } from '../../state/app';
 
 const Generate = () => {
-  const soldOut = false;
+  const { state } = useContext(appStore);
+  const { soldOut } = state.app;
+  console.log('soldOut = ', soldOut);
   return (
     <section className="generate" id="generate">
       <div className="generate__container">
