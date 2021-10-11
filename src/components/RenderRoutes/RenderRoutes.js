@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Switch, Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import RouteWithSubRoutes from './RouteWithSubRoutes';
 import ScrollToTop from '../ScrollToTop';
@@ -10,7 +10,7 @@ const RenderRoutes = ({ routes }) => (
       {routes.map((route) => (
         <RouteWithSubRoutes key={route.key} {...route} />
       ))}
-      <Route component={() => <h1>Page not found!</h1>} />
+      <Redirect to="/" />
     </Switch>
     <ScrollToTop />
   </>
