@@ -6,7 +6,7 @@ import BuyMoreBtn from '../../BuyMoreBtn';
 import Price from '../../Price';
 import GenerateCountBtn from '../../GenerateCountBtn';
 import { appStore } from '../../../state/app';
-import { dataGenerate, linkGenerate } from '../../../pages/MyNFTS/dataNfts';
+import { nearkatGenerate, linkDropGenerate } from '../../../data';
 
 const BuyMore = ({ kind }) => {
   const { state, update } = useContext(appStore);
@@ -37,7 +37,7 @@ const BuyMore = ({ kind }) => {
       const linksNftsCount = linksLastGenerate + +app.linksNftsCount;
       localStorage.setItem('linksNftsCount', linksNftsCount);
 
-      const newNearkatsArr = linkGenerate(
+      const newNearkatsArr = linkDropGenerate(
         linksLastGenerate,
         +app.linksNftsCount,
       );
@@ -54,7 +54,7 @@ const BuyMore = ({ kind }) => {
       const nftsCount = lastGenerate + +app.nftsCount;
       localStorage.setItem('nftsCount', nftsCount);
 
-      const newNearkatsArr = dataGenerate(lastGenerate);
+      const newNearkatsArr = nearkatGenerate(lastGenerate);
       const { nearkats } = app;
       nearkats.push(...newNearkatsArr);
       localStorage.setItem('nearkats', JSON.stringify(nearkats));
@@ -89,6 +89,7 @@ const BuyMore = ({ kind }) => {
           </p>
         )}
       </div>
+
       <div className="buy-more__center">
         <div className="buy-more__wrapper">
           <GenerateCountBtn
@@ -99,6 +100,7 @@ const BuyMore = ({ kind }) => {
         </div>
         <Price price={5} className={` ${active === 1 ? animation : ''}`} />
       </div>
+
       <div className="buy-more__bottom">
         <div className="buy-more__wrapper">
           <GenerateCountBtn
