@@ -3,7 +3,15 @@ import { StateUtils } from '../utils/state-utils';
 import { initNear } from './near';
 
 const initialState = {
-  app: {},
+  app: {
+    lastGenerate: 0,
+    nftsCount: +localStorage.getItem('nftsCount') || 0,
+    nearkats: JSON.parse(localStorage.getItem('nearkats')) || [],
+    soldOut: false,
+    linksLastGenerate: 0,
+    linksNftsCount: +localStorage.getItem('linksNftsCount') || 0,
+    linksNearkats: JSON.parse(localStorage.getItem('linksNearkats')) || [],
+  },
   near: {
     initialized: false,
   },

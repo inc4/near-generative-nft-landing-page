@@ -36,7 +36,6 @@
     position: relative;
     z-index: 10;
     width: fit-content;
-    overflow: hidden;
     align-items: center;
     display: flex;
     gap: 50px;
@@ -47,7 +46,7 @@
       position: absolute;
       left: 42px;
       content: '';
-      width: 100%;
+      width: 100px;
       height: 1px;
       border-top: 3px dotted #c4c4c486;
     }
@@ -61,14 +60,13 @@
     align-items: center;
     gap: 50px;
     width: fit-content;
-    overflow: hidden;
 
     &::before {
       z-index: -1;
       position: absolute;
       left: 42px;
       content: '';
-      width: 100%;
+      width: 100px;
       height: 1px;
       border-top: 3px dotted #c4c4c486;
     }
@@ -77,5 +75,35 @@
   &__wrapper {
     padding: 4px;
     background-color: $common-color;
+  }
+
+  &__message {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    right: 55px;
+    padding: 10px;
+    background-color: $burgundy;
+    z-index: 1;
+    border-radius: 100px;
+    animation: 3s linear 1 normal forwards showMsg;
+  }
+}
+
+@keyframes showMsg {
+  0% {
+    opacity: 0;
+    top: 0px;
+  }
+  20% {
+    opacity: 1;
+    top: 90px;
+  }
+  80% {
+    opacity: 1;
+    top: 90px;
+  }
+  100% {
+    opacity: 0;
   }
 }

@@ -1,10 +1,9 @@
 /* eslint-disable */
 import getConfig from '../config';
 import * as nearAPI from 'near-api-js';
-import { getWallet, getContract } from '../utils/near-utils';
+import { getWallet } from '../utils/near-utils';
 
-export const { networkId, nodeUrl, GAS, contractName, contractMethods } =
-  getConfig();
+export const { networkId, nodeUrl, GAS } = getConfig();
 
 export const {
   utils: {
@@ -25,7 +24,8 @@ export const initNear =
       signOut.call(wallet);
       update('wallet.signedIn', false);
       update('', { account: null });
-      localStorage.clear();
+      localStorage.removeItem('undefined_wallet_auth_key');
+      wallet.signedIn = wallet.isSignedIn();
       // new nearAPI.keyStores.BrowserLocalStorageKeyStore().clear()
     };
 
@@ -38,23 +38,7 @@ export const initNear =
         (await wallet.account().getAccountBalance()).available,
         2,
       );
-
-      const contract = getContract(account, contractMethods);
-
-      console.log('contract = ', contract);
-      const discount = await contract.discount({
-        num: 10,
-      });
-      const totalCost = await contract.total_cost({ num: 10 });
-      const tokenStorageCost = await contract.token_storage_cost();
-      const costPerToken = await contract.cost_per_token({ num: 1 });
-
-      console.log('totalCost: ', totalCost);
-      console.log('tokenStorageCost: ', tokenStorageCost);
-      console.log('costPerToken: ', costPerToken);
-      console.log('discount: ', discount);
-
-      await update('', { near, wallet, account, contract });
+      await update('', { near, wallet, account });
     }
 
     await update('', { near, wallet, account });

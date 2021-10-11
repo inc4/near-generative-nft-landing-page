@@ -2,9 +2,14 @@
 import * as nearAPI from 'near-api-js';
 import getConfig from '../config';
 
-export const { networkId, nodeUrl, walletUrl, contractName } = getConfig();
+export const {
+  networkId, nodeUrl, walletUrl,
+} = getConfig();
 
-const { Account, Contract } = nearAPI;
+const {
+  Account,
+  Contract,
+} = nearAPI;
 
 export const formatAccountId = (accountId, len = 16) => {
   if (accountId.length > len) {
@@ -15,18 +20,8 @@ export const formatAccountId = (accountId, len = 16) => {
 
 export const getWallet = async () => {
   const near = await nearAPI.connect({
-    networkId,
-    nodeUrl,
-    walletUrl,
-    deps: { keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore() },
+    networkId, nodeUrl, walletUrl, deps: { keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore() },
   });
   const wallet = new nearAPI.WalletAccount(near);
   return { near, wallet };
-};
-
-export const getContract = (account, methods = contractMethods) => {
-  return new nearAPI.Contract(account, contractName, {
-    ...methods,
-    sender: account.accountId,
-  });
 };

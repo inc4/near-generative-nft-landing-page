@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import NftList from '../../components/NftList/NftList';
-import data from './dataNfts';
+import NoNfts from '../../components/NoNfts/NoNfts';
+import { appStore } from '../../state/app';
 import Buy from '../../components/Buy';
 
-const MyNFTS = () => (
-  <div className="my-nfts">
-    <div className="my-nfts__data">
-      <NftList list={data} />
+const MyNFTS = () => {
+  const history = useHistory();
+
+  const { state } = useContext(appStore);
+  const { nftsCount, soldOut } = state.app;
+
+  useEffect(() => {
+    if (!localStorage.undefined_wallet_auth_key) {
+      history.push('/');
+    }
+  });
+
+  return nftsCount ? (
+    <div className="my-nfts">
+      <div className="my-nfts__data">
+        <NftList />
+      </div>
+      <Buy soldOut={soldOut} />
     </div>
-    <Buy />
-  </div>
-);
+  ) : (
+    <NoNfts soldOut={soldOut} />
+  );
+};
 
 export default MyNFTS;

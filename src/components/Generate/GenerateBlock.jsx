@@ -1,15 +1,15 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
 import { appStore } from '../../state/app';
 import GenerateCountBtn from '../GenerateCountBtn';
+import { nearkatGenerate } from '../../data';
 
 const GenerateBlock = () => {
-  const { state } = useContext(appStore);
-  console.log('state: ', state);
-
-  const { wallet } = state;
+  const { state, update } = useContext(appStore);
+  const { wallet, app } = state;
   const history = useHistory();
 
   const [active, setActive] = useState();
@@ -26,17 +26,22 @@ const GenerateBlock = () => {
   }, [showMessage]);
 
   const handleClick = () => {
-    history.push('/#generate');
-
     if (!wallet.signedIn) {
       wallet.signIn();
     } else if (!active) {
       setShowMessage(true);
     } else {
-      // TODO
-      const nftMintOne =
-        active === 1 ? 'contract.nft_mint_one' : 'contract.nft_mint_many';
-      console.log('nftMintOne', nftMintOne);
+      const lastGenerate = +active;
+      const nftsCount = lastGenerate + +app.nftsCount;
+      localStorage.setItem('nftsCount', nftsCount);
+
+      const newNearkatsArr = nearkatGenerate(lastGenerate);
+      const { nearkats } = app;
+      nearkats.push(...newNearkatsArr);
+      localStorage.setItem('nearkats', JSON.stringify(nearkats));
+
+      update('app', { lastGenerate, nftsCount, nearkats });
+      history.push('/my-nfts');
     }
   };
 
@@ -83,4 +88,4 @@ const GenerateBlock = () => {
     <></>
   );
 };
-export default GenerateBlock;
+export default memo(GenerateBlock);
