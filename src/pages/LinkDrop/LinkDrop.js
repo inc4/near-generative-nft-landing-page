@@ -98,7 +98,7 @@ const LinkDrop = () => {
         </div>
       </div>
 
-      <Buy />
+      <Buy soldOut={app.soldOut} />
     </div>
   ) : (
     <NoNfts soldOut={app.soldOut} />
