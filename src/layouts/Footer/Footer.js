@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext, memo } from 'react';
 import { ReactSVG } from 'react-svg';
 import { appStore } from '../../state/app';
