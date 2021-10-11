@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
-import soldOutKat from '../../assets/images/sold-out-kat.svg';
 import Buy from '../Buy/Buy';
+import soldOutKat from '../../assets/images/sold-out-kat.svg';
 import GenerateSoldOut from '../Generate/GenerateSoldOut';
 import ShareSocialLinks from '../ShareSocialLinks';
 
@@ -29,6 +29,10 @@ const NoNfts = ({ soldOut }) => (
 
 NoNfts.propTypes = {
   soldOut: PropTypes.bool,
+};
+
+NoNfts.defaultProps = {
+  soldOut: false,
 };
 
 export default NoNfts;

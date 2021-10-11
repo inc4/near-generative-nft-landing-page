@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
 import { appStore } from '../../state/app';
 import GenerateCountBtn from '../GenerateCountBtn';
-import { dataGenerate } from '../../pages/MyNFTS/dataNfts';
+import { nearkatGenerate } from '../../data';
 
 const GenerateBlock = () => {
   const { state, update } = useContext(appStore);
@@ -35,13 +35,12 @@ const GenerateBlock = () => {
       const nftsCount = lastGenerate + +app.nftsCount;
       localStorage.setItem('nftsCount', nftsCount);
 
-      const newNearkatsArr = dataGenerate(lastGenerate);
+      const newNearkatsArr = nearkatGenerate(lastGenerate);
       const { nearkats } = app;
       nearkats.push(...newNearkatsArr);
       localStorage.setItem('nearkats', JSON.stringify(nearkats));
 
       update('app', { lastGenerate, nftsCount, nearkats });
-      console.log('state:', state);
       history.push('/my-nfts');
     }
   };

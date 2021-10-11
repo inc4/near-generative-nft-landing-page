@@ -8,7 +8,7 @@ import GenerateSoldOut from '../Generate/GenerateSoldOut';
 const Buy = ({ soldOut }) => {
   const history = useHistory();
 
-  const goToLinkDrop = () => history.push('/link-drop');
+  const goToLinkDrop = () => history.push('/link-drop#share-nft');
 
   return (
     <div className="buy">
