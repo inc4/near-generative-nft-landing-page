@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import NftItem from '../NftItem';
 import { appStore } from '../../state/app';
@@ -6,7 +5,6 @@ import { appStore } from '../../state/app';
 const NftList = () => {
   const { state, update } = useContext(appStore);
   const { app } = state;
-  console.log('state:', state);
 
   const handleClick = (index) => {
     const newArr = app.nearkats.map((item, i) =>
@@ -14,13 +12,7 @@ const NftList = () => {
     );
     update('app', { nearkats: newArr });
     localStorage.setItem('nearkats', JSON.stringify(newArr));
-    console.log('newArr', newArr);
   };
-
-  // const nearkatsArr = JSON.stringify(localStorage.nearkats) || [];
-  // const newNearkatsArr = dataGenerate(app.lastGenerate);
-  // nearkatsArr.push(...newNearkatsArr);
-  // console.log(nearkatsArr, newNearkatsArr);
 
   return (
     <div className="nfts-list">
