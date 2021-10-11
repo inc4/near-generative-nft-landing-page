@@ -1,18 +1,15 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import NftList from '../../components/NftList/NftList';
 import NoNfts from '../../components/NoNfts/NoNfts';
 import { appStore } from '../../state/app';
 import Buy from '../../components/Buy';
-import GenerateSoldOut from '../../components/Generate/GenerateSoldOut';
 
 const MyNFTS = () => {
   const history = useHistory();
 
   const { state } = useContext(appStore);
-  const { app } = state;
+  const { nftsCount, soldOut } = state.app;
 
   useEffect(() => {
     if (!localStorage.undefined_wallet_auth_key) {
@@ -20,15 +17,15 @@ const MyNFTS = () => {
     }
   });
 
-  return app.nftsCount ? (
+  return nftsCount ? (
     <div className="my-nfts">
       <div className="my-nfts__data">
         <NftList />
       </div>
-      <Buy soldOut={app.soldOut} />
+      <Buy soldOut={soldOut} />
     </div>
   ) : (
-    <NoNfts soldOut={app.soldOut} />
+    <NoNfts soldOut={soldOut} />
   );
 };
 
