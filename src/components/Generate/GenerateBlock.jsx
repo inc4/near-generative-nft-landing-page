@@ -9,7 +9,7 @@ import { nearkatGenerate } from '../../data';
 
 const GenerateBlock = () => {
   const { state, update } = useContext(appStore);
-  const { wallet, app } = state;
+  const { wallet, app, price } = state;
   const history = useHistory();
 
   const [active, setActive] = useState();
@@ -62,7 +62,7 @@ const GenerateBlock = () => {
       <div className="generate-block__price ">
         <span className="generate-block__near">Ⓝ</span>
         <p className={`generate-block__count  ${animation}`}>
-          {active === 10 ? 45 : 5}
+          {active === 10 ? price.tenToken : price.oneToken}
         </p>
       </div>
       <BuyMoreBtn

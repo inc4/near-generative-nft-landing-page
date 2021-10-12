@@ -15,6 +15,12 @@ const initialState = {
   near: {
     initialized: false,
   },
+  price: {
+    oneToken: 5,
+    tenToken: 45,
+    tokenStorageFormat: 0,
+    discountFormat: 0,
+  },
 };
 
 export const { appStore, AppProvider } = StateUtils(initialState, 'app');
