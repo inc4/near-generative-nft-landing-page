@@ -1,5 +1,4 @@
-const contractName =
-  process.env.REACT_APP_CONTRACT_NAME || 'contract.tenk.testnet';
+const contractName = process.env.REACT_APP_CONTRACT_NAME || 'test.tenk.testnet';
 // const IPFS_URL = process.env.REACT_APP_IPFS_URL || 'https://gateway.ipfs.io';
 
 export default function getConfig() {

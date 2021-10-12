@@ -14,8 +14,8 @@ const BuyMore = ({ kind }) => {
   const { app, price, contract } = state;
   const history = useHistory();
 
-  const text = kind === 'gift' ? 'Generate gift links' : 'Buy more';
   const isGift = kind === 'gift';
+  const text = isGift ? 'Generate gift links' : 'Buy more';
 
   const [active, setActive] = useState();
   const [showMessage, setShowMessage] = useState(false);
@@ -30,7 +30,7 @@ const BuyMore = ({ kind }) => {
     return undefined;
   }, [showMessage]);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (!active) {
       setShowMessage(true);
     } else if (isGift) {
@@ -38,22 +38,21 @@ const BuyMore = ({ kind }) => {
       const linksNftsCount = linksLastGenerate + +app.linksNftsCount;
       localStorage.setItem('linksNftsCount', linksNftsCount);
 
-      const newNearkatsArr = linkDropGenerate(
-        linksLastGenerate,
-        +app.linksNftsCount,
-      );
+      const linkdropURL = await linkDropGenerate(contract);
+      console.log(linkdropURL);
+
       const { linksNearkats } = app;
-      linksNearkats.push(...newNearkatsArr);
+      linksNearkats.push(linkdropURL);
       localStorage.setItem('linksNearkats', JSON.stringify(linksNearkats));
 
       update('app', { linksLastGenerate, linksNftsCount, linksNearkats });
 
-      if (active === 10) {
-        contract.create_linkdrop({ num: 10 }, GAS, price.tenTokenCost);
-      }
-      if (active === 1) {
-        contract.create_linkdrop({}, GAS, price.oneTokenCost);
-      }
+      // if (active === 10) {
+      //   contract.create_linkdrop({ num: 10 }, GAS, price.tenTokenCost);
+      // }
+      // if (active === 1) {
+      // await contract.create_linkdrop({}, GAS, price.oneTokenCost);
+      // }
 
       history.push('/link-drop');
     } else {
