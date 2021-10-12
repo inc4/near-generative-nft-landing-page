@@ -29,10 +29,9 @@ const LinkDrop = () => {
   });
 
   const handleChange = (e) => {
-    console.log('handleChange =', e.target.value);
     const text = e.target.value;
     const dataIndex = +e.target.dataset.index;
-    console.log('dataIndex', dataIndex);
+
     setLinsNearkats(
       linksNearkats.map((item, index) =>
         dataIndex === index ? { ...item, text } : item,
