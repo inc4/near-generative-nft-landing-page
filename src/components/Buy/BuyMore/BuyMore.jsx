@@ -7,10 +7,11 @@ import Price from '../../Price';
 import GenerateCountBtn from '../../GenerateCountBtn';
 import { appStore } from '../../../state/app';
 import { nearkatGenerate, linkDropGenerate } from '../../../data';
+import { GAS } from '../../../state/near';
 
 const BuyMore = ({ kind }) => {
   const { state, update } = useContext(appStore);
-  const { app } = state;
+  const { app, price, contract } = state;
   const history = useHistory();
 
   const text = kind === 'gift' ? 'Generate gift links' : 'Buy more';
@@ -46,7 +47,13 @@ const BuyMore = ({ kind }) => {
       localStorage.setItem('linksNearkats', JSON.stringify(linksNearkats));
 
       update('app', { linksLastGenerate, linksNftsCount, linksNearkats });
-      console.log('app:', state.app);
+
+      if (active === 10) {
+        contract.create_linkdrop({ num: 10 }, GAS, price.tenTokenCost);
+      }
+      if (active === 1) {
+        contract.create_linkdrop({}, GAS, price.oneTokenCost);
+      }
 
       history.push('/link-drop');
     } else {
@@ -60,7 +67,13 @@ const BuyMore = ({ kind }) => {
       localStorage.setItem('nearkats', JSON.stringify(nearkats));
 
       update('app', { lastGenerate, nftsCount, nearkats });
-      console.log('state:', state);
+
+      if (active === 10) {
+        contract.nft_mint_many({ num: 10 }, GAS, price.tenTokenCost);
+      }
+      if (active === 1) {
+        contract.nft_mint_one({}, GAS, price.oneTokenCost);
+      }
       history.push('/my-nfts');
     }
   };
@@ -98,7 +111,10 @@ const BuyMore = ({ kind }) => {
             isActive={active === 1}
           />
         </div>
-        <Price price={5} className={` ${active === 1 ? animation : ''}`} />
+        <Price
+          price={price.oneToken}
+          className={` ${active === 1 ? animation : ''}`}
+        />
       </div>
 
       <div className="buy-more__bottom">
@@ -109,7 +125,10 @@ const BuyMore = ({ kind }) => {
             isActive={active === 10}
           />
         </div>
-        <Price price={45} className={` ${active === 10 ? animation : ''}`} />
+        <Price
+          price={price.tenToken}
+          className={` ${active === 10 ? animation : ''}`}
+        />
       </div>
     </div>
   );

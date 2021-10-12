@@ -1,4 +1,5 @@
-// const contractName = process.env.REACT_APP_CONTRACT_NAME || '';
+const contractName =
+  process.env.REACT_APP_CONTRACT_NAME || 'contract.tenk.testnet';
 // const IPFS_URL = process.env.REACT_APP_IPFS_URL || 'https://gateway.ipfs.io';
 
 export default function getConfig() {
@@ -8,12 +9,17 @@ export default function getConfig() {
     nodeUrl: 'https://rpc.testnet.near.org',
     walletUrl: 'https://wallet.testnet.near.org',
     helperUrl: 'https://helper.testnet.near.org',
-    // contractName,
+    contractName,
     GAS: '200000000000000',
     DEFAULT_NEW_ACCOUNT_AMOUNT: '5',
     contractMethods: {
-      changeMethods: [''],
-      viewMethods: [''],
+      changeMethods: ['nft_mint_one', 'nft_mint_many', 'create_linkdrop'],
+      viewMethods: [
+        'cost_per_token',
+        'discount',
+        'token_storage_cost',
+        'total_cost',
+      ],
     },
   };
 
