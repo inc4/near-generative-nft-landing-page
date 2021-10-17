@@ -1,6 +1,7 @@
 .navigation {
   &__list {
     display: flex;
+    justify-content: center;
     gap: 40px;
 
     @include for-phone {
