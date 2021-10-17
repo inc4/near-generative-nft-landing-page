@@ -11,15 +11,24 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (!hash) return;
 
-    history.push(pathname);
+    if (hash !== '#generate') history.push(pathname);
 
-    setTimeout(() => {
-      const elem = document.querySelector(hash);
+    if (hash !== '#share-nft') {
+      setTimeout(() => {
+        const elem = document.querySelector(hash);
 
-      elem.scrollIntoView({
-        behavior: 'smooth',
+        elem.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }, 100);
+    } else {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       });
-    }, 100);
+    }
   }, [hash]);
 
   return (
