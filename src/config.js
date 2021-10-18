@@ -16,6 +16,12 @@ export default function getConfig() {
         'discount',
         'token_storage_cost',
         'total_cost',
+        'nft_supply_for_owner',
+        'nft_total_supply',
+        'nft_tokens',
+        'nft_tokens_for_owner',
+        'tokens_left',
+        'cost_of_linkdrop',
       ],
     },
   };
