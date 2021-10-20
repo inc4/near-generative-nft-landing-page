@@ -2,6 +2,12 @@
   width: 144px;
   position: relative;
 
+  &__img {
+    width: 144px;
+    height: auto;
+    border-radius: 5px;
+  }
+
   &:hover {
     cursor: pointer;
 

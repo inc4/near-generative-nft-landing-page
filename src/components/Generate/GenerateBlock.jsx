@@ -1,58 +1,37 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-console */
-import React, { useState, useContext, useEffect, memo } from 'react';
+import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyMoreBtn from '../BuyMoreBtn';
-import { appStore } from '../../state/app';
 import GenerateCountBtn from '../GenerateCountBtn';
-import { nearkatGenerate } from '../../data';
+import useBuy from '../../hooks/useBuy';
+import useMintNft from '../../hooks/useMintNft';
 
 const GenerateBlock = () => {
-  const { state, update } = useContext(appStore);
-  const { wallet, app, price } = state;
   const history = useHistory();
 
-  const [active, setActive] = useState();
-  const [showMessage, setShowMessage] = useState(false);
-  const [animation, setAnimation] = useState('');
+  const { mintNft } = useMintNft();
 
-  useEffect(() => {
-    if (showMessage) {
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 3000);
-    }
-    return undefined;
-  }, [showMessage]);
+  const {
+    count,
+    state,
+    showMessage,
+    setShowMessage,
+    showCountAnimation,
+    handleNumberClick,
+  } = useBuy();
+
+  const { wallet, price, app } = state;
 
   const handleClick = () => {
     if (!wallet.signedIn) {
-      wallet.signIn();
-    } else if (!active) {
+      const successUrl = `${window.location.origin}/#generate`;
+      wallet.signIn(successUrl);
+    } else if (!count) {
       setShowMessage(true);
     } else {
-      const lastGenerate = +active;
-      const nftsCount = lastGenerate + +app.nftsCount;
-      localStorage.setItem('nftsCount', nftsCount);
-
-      const newNearkatsArr = nearkatGenerate(lastGenerate);
-      const { nearkats } = app;
-      nearkats.push(...newNearkatsArr);
-      localStorage.setItem('nearkats', JSON.stringify(nearkats));
-
-      update('app', { lastGenerate, nftsCount, nearkats });
       history.push('/my-nfts');
+      mintNft(count);
     }
-  };
-
-  const handleNumberClick = (number) => {
-    if (active === number) {
-      return;
-    }
-
-    setActive(number);
-    setAnimation('generate-block__animation-hide');
-    setTimeout(() => setAnimation('generate-block__animation-price'), 0);
   };
 
   return wallet ? (
@@ -61,8 +40,8 @@ const GenerateBlock = () => {
       <div className="generate-block__vertical-line "></div>
       <div className="generate-block__price ">
         <span className="generate-block__near">Ⓝ</span>
-        <p className={`generate-block__count  ${animation}`}>
-          {active === 10 ? price.tenToken : price.oneToken}
+        <p className={`generate-block__count  ${showCountAnimation}`}>
+          {count === app.manyCount ? price.manyNFTS : price.oneNFT}
         </p>
       </div>
       <BuyMoreBtn
@@ -71,17 +50,20 @@ const GenerateBlock = () => {
         className="generate-block__button"
       />
       <GenerateCountBtn
-        count={1}
-        onClick={() => handleNumberClick(1)}
-        isActive={active === 1}
+        count={app.oneCount}
+        onClick={() => handleNumberClick(app.oneCount)}
+        isActive={count === app.oneCount}
       />
+
       <GenerateCountBtn
-        count={10}
-        onClick={() => handleNumberClick(10)}
-        isActive={active === 10}
+        count={app.manyCount}
+        onClick={() => handleNumberClick(app.manyCount)}
+        isActive={count === app.manyCount}
       />
       {showMessage && (
-        <div className="generate-block__message">select 1 or 10 nearkats</div>
+        <div className="generate-block__message">
+          select {app.oneCount} or {app.manyCount} nearkats
+        </div>
       )}
     </div>
   ) : (

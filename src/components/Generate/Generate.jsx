@@ -6,6 +6,7 @@ import { appStore } from '../../state/app';
 const Generate = () => {
   const { state } = useContext(appStore);
   const { soldOut } = state.app;
+  const { oneNFT } = state.price;
 
   return (
     <section className="generate" id="generate">
@@ -31,7 +32,7 @@ const Generate = () => {
             </li>
           </ul>
           <p className="generate__price-text">
-            For the flat fee of 5Ⓝ, you can mint your own Nearkat.{' '}
+            For the flat fee of ${oneNFT} Ⓝ, you can mint your own Nearkat.{' '}
           </p>
         </div>
 

@@ -1,10 +1,7 @@
-const contractName =
-  process.env.REACT_APP_CONTRACT_NAME || 'contract.tenk.testnet';
-// const IPFS_URL = process.env.REACT_APP_IPFS_URL || 'https://gateway.ipfs.io';
+const contractName = process.env.REACT_APP_CONTRACT_NAME || 'test.tenk.testnet';
 
 export default function getConfig() {
   let config = {
-    // ipfsURL: IPFS_URL,
     networkId: 'testnet',
     nodeUrl: 'https://rpc.testnet.near.org',
     walletUrl: 'https://wallet.testnet.near.org',
@@ -19,6 +16,13 @@ export default function getConfig() {
         'discount',
         'token_storage_cost',
         'total_cost',
+        'nft_supply_for_owner',
+        'nft_total_supply',
+        'nft_tokens',
+        'nft_tokens_for_owner',
+        'tokens_left',
+        'cost_of_linkdrop',
+        'links_left',
       ],
     },
   };
