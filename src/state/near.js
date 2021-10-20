@@ -57,15 +57,20 @@ export const initNear =
       // take information about NFT tokens
       const contract = getContract(account, contractMethods);
 
-      let [nearkatsArray, tokens_left, nft_tokens] = await Promise.all([
-        contract.nft_tokens_for_owner({ account_id: account.accountId }),
-        contract.tokens_left(),
-        contract.nft_tokens(),
-      ]);
-
-      console.log('tokens_left', tokens_left);
-      console.log('nft_tokens_for_owner', nearkatsArray);
-      console.log('nft_tokens', nft_tokens);
+      console.log('tokens', await contract.tokens_left());
+      console.log(
+        'nft_supply_for_owner',
+        await contract.nft_supply_for_owner({ account_id: account.accountId }),
+      );
+      console.log('nft_total_supply', await contract.nft_total_supply());
+      let nearkatsArray;
+      try {
+        nearkatsArray = await contract.nft_tokens_for_owner({
+          account_id: account.accountId,
+        });
+      } catch (e) {
+        console.log('error:', e);
+      }
 
       await update('', { near, wallet, account, contract, price });
 
