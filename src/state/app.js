@@ -4,20 +4,19 @@ import { initNear } from './near';
 
 const initialState = {
   app: {
-    lastGenerate: 0,
-    nftsCount: +localStorage.getItem('nftsCount') || 0,
-    nearkats: JSON.parse(localStorage.getItem('nearkats')) || [],
     soldOut: false,
-    linksLastGenerate: 0,
-    linksNftsCount: +localStorage.getItem('linksNftsCount') || 0,
-    linksNearkats: JSON.parse(localStorage.getItem('linksNearkats')) || [],
+    oneCount: 1,
+    manyCount: 11,
+    revealNearkats: JSON.parse(localStorage.getItem('revealNearkats')) || {},
+    nearkatsArray: [],
+    linkDropArray: JSON.parse(localStorage.getItem('linkDropArray')),
   },
   near: {
     initialized: false,
   },
   price: {
-    oneToken: 5,
-    tenToken: 45,
+    oneNFT: 10,
+    manyNFTS: 82,
     tokenStorageFormat: 0,
     discountFormat: 0,
   },

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import NftItem from '../NftItem';
 import { appStore } from '../../state/app';
@@ -6,21 +7,20 @@ const NftList = () => {
   const { state, update } = useContext(appStore);
   const { app } = state;
 
-  const handleClick = (index) => {
-    const newArr = app.nearkats.map((item, i) =>
-      i === index ? { ...item, reveal: true } : item,
-    );
-    update('app', { nearkats: newArr });
-    localStorage.setItem('nearkats', JSON.stringify(newArr));
+  const handleClick = (revealNearkats) => {
+    const newRevealNearkats = { ...app.revealNearkats, ...revealNearkats };
+
+    update('app', { revealNearkats: newRevealNearkats });
+    localStorage.setItem('revealNearkats', JSON.stringify(newRevealNearkats));
   };
 
   return (
     <div className="nfts-list">
-      {app.nearkats.map((item, index) => (
+      {app.nearkatsArray.map((item) => (
         <NftItem
-          key={item.key}
-          item={item}
-          index={index}
+          key={item.token_id}
+          item={item.metadata}
+          isHide={app.revealNearkats[item.token_id]}
           onClick={handleClick}
         />
       ))}

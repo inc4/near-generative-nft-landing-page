@@ -12,12 +12,18 @@
     position: relative;
   }
 
-  &__icon {
-    svg {
-      width: 144px;
-      height: 144px;
-      border-radius: 100px;
-    }
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 144px;
+    height: 144px;
+    overflow: hidden;
+    border-radius: 100px;
+  }
+  &__image {
+    width: 144px;
+    height: auto;
   }
 
   &__rarity {

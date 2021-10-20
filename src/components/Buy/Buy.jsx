@@ -7,6 +7,7 @@ import GenerateSoldOut from '../Generate/GenerateSoldOut';
 
 const Buy = ({ soldOut }) => {
   const history = useHistory();
+  const linkDrop = true;
 
   const goToLinkDrop = () => history.push('/link-drop#share-nft');
 
@@ -16,7 +17,7 @@ const Buy = ({ soldOut }) => {
         {!soldOut ? (
           <>
             <BuyMore />
-            <BuyMore kind="gift" />
+            <BuyMore isLinkDrop={linkDrop} />
             <BuyMoreBtn
               text="Send an NFT"
               className="buy__nft"
