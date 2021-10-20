@@ -1,10 +1,16 @@
 /* eslint-disable */
 import getConfig from '../config';
 import * as nearAPI from 'near-api-js';
-import { getWallet, getContract } from '../utils/near-utils';
+import { getWallet, getContract, getPrice } from '../utils/near-utils';
 
-export const { networkId, nodeUrl, GAS, contractName, contractMethods } =
-  getConfig();
+export const {
+  networkId,
+  nodeUrl,
+  walletUrl,
+  GAS,
+  contractName,
+  contractMethods,
+} = getConfig();
 
 export const {
   utils: {
@@ -17,9 +23,16 @@ export const initNear =
   async ({ update, getState, dispatch }) => {
     const { near, wallet } = await getWallet();
 
-    wallet.signIn = () => {
-      wallet.requestSignIn();
+    const price = await getPrice(near);
+
+    wallet.signIn = (successUrl) => {
+      successUrl
+        ? wallet.requestSignIn({
+            successUrl,
+          })
+        : wallet.requestSignIn();
     };
+
     const signOut = wallet.signOut;
     wallet.signOut = () => {
       signOut.call(wallet);
@@ -41,35 +54,30 @@ export const initNear =
         2,
       );
 
+      // take information about NFT tokens
       const contract = getContract(account, contractMethods);
 
-      let [discount, tenTokenCost, tokenStorage, oneTokenCost] =
-        await Promise.all([
-          contract.discount({
-            num: 10,
-          }),
-          contract.total_cost({ num: 10 }),
-          contract.token_storage_cost(),
-          contract.cost_per_token({ num: 1 }),
-        ]);
+      let [nearkatsArray, tokens_left, nft_tokens] = await Promise.all([
+        contract.nft_tokens_for_owner({ account_id: account.accountId }),
+        contract.tokens_left(),
+        contract.nft_tokens(),
+      ]);
 
-      const discountFormat = formatNearAmount(discount);
-      const tenTokenFormat = formatNearAmount(tenTokenCost);
-      const oneTokenFormat = formatNearAmount(oneTokenCost);
-      const tokenStorageFormat = formatNearAmount(tokenStorage);
-
-      const price = {
-        oneToken: oneTokenFormat - tokenStorageFormat,
-        tenToken: tenTokenFormat - 10 * tokenStorageFormat,
-        tokenStorageFormat,
-        discountFormat,
-        tenTokenCost,
-        oneTokenCost,
-      };
+      console.log('tokens_left', tokens_left);
+      console.log('nft_tokens_for_owner', nearkatsArray);
+      console.log('nft_tokens', nft_tokens);
 
       await update('', { near, wallet, account, contract, price });
+
+      const state = getState();
+      const app = { ...state.app, nearkatsArray };
+
+      await update('', { app });
       console.log('state:', getState());
+
+      return;
     }
 
-    await update('', { near, wallet, account });
+    await update('', { near, wallet, account, price });
+    console.log('state:', getState());
   };
