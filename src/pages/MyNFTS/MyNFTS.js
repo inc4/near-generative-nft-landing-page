@@ -9,7 +9,8 @@ const MyNFTS = () => {
   const history = useHistory();
 
   const { state } = useContext(appStore);
-  const { nftsCount, soldOut } = state.app;
+  const { soldOut } = state.app;
+  const nftsCount = state.app.nearkatsArray.length;
 
   useEffect(() => {
     if (!localStorage.undefined_wallet_auth_key) {
