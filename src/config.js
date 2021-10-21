@@ -22,7 +22,6 @@ export default function getConfig() {
         'nft_tokens_for_owner',
         'tokens_left',
         'cost_of_linkdrop',
-        'links_left',
       ],
     },
   };
