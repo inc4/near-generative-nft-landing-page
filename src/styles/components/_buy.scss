@@ -47,5 +47,9 @@
   &__image {
     width: 400px;
     height: auto;
+
+    @include for-phone {
+      width: 300px;
+    }
   }
 }
