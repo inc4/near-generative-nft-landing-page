@@ -12,6 +12,7 @@ import ShareableLink from './ShareableLink';
 import ShareableInput from './ShareableInput';
 import ShareableCircle from './ShareableCircle';
 import SaveBtn from './SaveBtn/SaveBtn';
+import linkDrops from './dataLinkDrops';
 
 const LinkDrop = () => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const LinkDrop = () => {
   const { state } = useContext(appStore);
   const { app } = state;
 
-  const [linksNearkats, setLinsNearkats] = useState(app.linksNearkats);
+  const [linksNearkats, setLinsNearkats] = useState(linkDrops);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const LinkDrop = () => {
     setActiveIndex(index);
   };
 
-  return app.linksNftsCount ? (
+  return linkDrops.length ? (
     <div className="link-drop">
       <div className="link-drop__data-wrapper" id="share-nft">
         <ReactSVG src={background} className="link-drop__background" />

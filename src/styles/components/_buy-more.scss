@@ -17,6 +17,7 @@
     flex-direction: row-reverse;
     align-items: center;
     position: relative;
+    z-index: 15;
 
     &-text {
       position: absolute;
@@ -41,6 +42,10 @@
     gap: 50px;
     margin-top: 83px;
 
+    @include for-tablet {
+      margin-top: 45px;
+    }
+
     &::before {
       z-index: -1;
       position: absolute;
@@ -60,6 +65,10 @@
     align-items: center;
     gap: 50px;
     width: fit-content;
+
+    @include for-tablet {
+      margin-top: 30px;
+    }
 
     &::before {
       z-index: -1;
