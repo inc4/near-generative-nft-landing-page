@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import NftItem from '../NftItem';
 import { appStore } from '../../state/app';
