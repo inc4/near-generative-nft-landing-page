@@ -7,12 +7,17 @@
     width: 1180px;
     margin: auto;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 100px;
 
-    @include for-laptop {
+    @include for-small-desktop {
       width: unset;
       margin: unset;
+    }
+
+    @include for-tablet {
+      gap: 70px;
     }
 
     > * {
@@ -30,6 +35,7 @@
     justify-content: center;
     width: fit-content !important;
     margin: auto;
+    flex-wrap: wrap;
   }
 
   &__sold-out {

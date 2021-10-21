@@ -6,11 +6,20 @@
   &__data {
     width: 1012px;
     margin: auto;
+
+    @include for-laptop {
+      width: unset;
+    }
   }
 
   &__data-top {
     display: flex;
     gap: 70px;
+
+    @include for-laptop {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__title {
@@ -33,6 +42,18 @@
   &__links {
     display: flex;
     gap: 18px;
+
+    @include for-phone {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__information {
+    max-width: 500px;
+
+    @include for-phone {
+      max-width: unset;
+    }
   }
 
   &__img {
