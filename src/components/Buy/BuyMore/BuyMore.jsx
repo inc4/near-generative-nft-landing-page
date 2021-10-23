@@ -45,15 +45,17 @@ const BuyMore = ({ isLinkDrop }) => {
         />
       </div>
 
-      <div className="buy-more__bottom">
-        <CountAndPrice
-          activeCount={count}
-          handleNumberClick={handleNumberClick}
-          showAnimation={showCountAnimation}
-          price={price}
-          currentCount={app.manyCount}
-        />
-      </div>
+      {!isLinkDrop && (
+        <div className="buy-more__bottom">
+          <CountAndPrice
+            activeCount={count}
+            handleNumberClick={handleNumberClick}
+            showAnimation={showCountAnimation}
+            price={price}
+            currentCount={app.manyCount}
+          />
+        </div>
+      )}
     </div>
   );
 };
