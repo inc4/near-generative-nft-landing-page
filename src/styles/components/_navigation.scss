@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     gap: 40px;
+    flex-wrap: wrap;
 
     @include for-phone {
       gap: 10px;

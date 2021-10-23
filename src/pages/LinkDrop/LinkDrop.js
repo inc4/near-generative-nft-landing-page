@@ -19,7 +19,7 @@ const LinkDrop = () => {
   const { state } = useContext(appStore);
   const { app } = state;
 
-  const [linksNearkats, setLinsNearkats] = useState(app.linksNearkats);
+  const [linkDropArray, setLinkDropArray] = useState(app.linkDropArray);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -32,8 +32,8 @@ const LinkDrop = () => {
     const text = e.target.value;
     const dataIndex = +e.target.dataset.index;
 
-    setLinsNearkats(
-      linksNearkats.map((item, index) =>
+    setLinkDropArray(
+      linkDropArray.map((item, index) =>
         dataIndex === index ? { ...item, text } : item,
       ),
     );
@@ -43,7 +43,7 @@ const LinkDrop = () => {
     setActiveIndex(index);
   };
 
-  return app.linksNftsCount ? (
+  return linkDropArray.length ? (
     <div className="link-drop">
       <div className="link-drop__data-wrapper" id="share-nft">
         <ReactSVG src={background} className="link-drop__background" />
@@ -57,8 +57,8 @@ const LinkDrop = () => {
           <div className="link-drop__center">
             <div>
               <ul className="link-drop__list">
-                {linksNearkats.map((item, index) => (
-                  <li className="link-drop__item" key={item.key}>
+                {linkDropArray.map((item, index) => (
+                  <li className="link-drop__item" key={item.id}>
                     <ShareableCircle
                       activeLinkForShare={activeIndex}
                       onClick={handleCircleClick}
@@ -76,10 +76,10 @@ const LinkDrop = () => {
               <div className="link-drop__save">
                 <SaveBtn
                   onClick={() => {
-                    console.log('Save: linksNearkats', linksNearkats);
+                    console.log('Save: linkDropArray', linkDropArray);
                     localStorage.setItem(
-                      'linksNearkats',
-                      JSON.stringify(linksNearkats),
+                      'linkDropArray',
+                      JSON.stringify(linkDropArray),
                     );
                   }}
                 />
@@ -88,8 +88,8 @@ const LinkDrop = () => {
               <ShareSocialLinks
                 color="purpure"
                 className="link-drop__share-links"
-                text={linksNearkats[activeIndex]?.text}
-                link={linksNearkats[activeIndex]?.link}
+                text={linkDropArray[activeIndex]?.text}
+                link={linkDropArray[activeIndex]?.link}
               />
             </div>
             <ReactSVG src={bigCat} />

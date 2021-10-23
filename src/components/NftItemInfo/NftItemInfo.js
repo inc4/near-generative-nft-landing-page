@@ -1,10 +1,23 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 import rarity from '../../assets/images/rarity-common.svg';
 
-const NftItemInfo = ({ className, item }) => {
+const NftItemInfo = ({ className, item, urlIpfs }) => {
   const nftInfo = useRef();
+  const [info, setInfo] = useState([]);
+
+  useEffect(async () => {
+    try {
+      const response = await fetch(`${urlIpfs}/${item.reference}`);
+      const data = await response.json();
+
+      setInfo(data.extra);
+    } catch (e) {
+      // eslint-disable-next-line
+      console.log(e);
+    }
+  }, []);
 
   useEffect(() => {
     const { right } = nftInfo?.current?.getBoundingClientRect();
@@ -20,9 +33,7 @@ const NftItemInfo = ({ className, item }) => {
         <div className="nft-item-info__image-wrapper">
           <img
             className="nft-item-info__image"
-            src={`https://ipfs.io/ipfs/QmXxsVP5HahZEQFnfkXqmCHH3EXXdQeAUzenrTRpbQNeDb/${
-              item.title % 10
-            }/media.png`}
+            src={`${urlIpfs}/${item.media}`}
             alt="nearkat"
           />
         </div>
@@ -35,17 +46,11 @@ const NftItemInfo = ({ className, item }) => {
         />
       </div>
       <div className="nft-item-info__stats">
-        <p>Name:&nbsp;Uncommon</p>
-        <p>Head: </p>
-        <p>Background: </p>
-        <p>Clothing</p>
-        <p>Generation</p>
-        <p>Sequence</p>
-        <p>Eyewear</p>
-        <p>Fur / Skin </p>
-        <p>Attribute Count</p>
-        <p>Twin</p>
-        <p>Mouth</p>
+        {info.map((infoItem) => (
+          <p key={infoItem.value + NftItemInfo.trait_type}>
+            {infoItem.trait_type} : {infoItem.value}
+          </p>
+        ))}
       </div>
     </div>
   );
@@ -54,5 +59,6 @@ const NftItemInfo = ({ className, item }) => {
 NftItemInfo.propTypes = {
   className: PropTypes.string,
   item: PropTypes.object,
+  urlIpfs: PropTypes.string,
 };
 export default NftItemInfo;

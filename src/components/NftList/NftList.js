@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import NftItem from '../NftItem';
 import { appStore } from '../../state/app';
@@ -21,6 +20,7 @@ const NftList = () => {
           key={item.token_id}
           item={item.metadata}
           isHide={app.revealNearkats[item.token_id]}
+          urlIpfs={app.urlIpfs}
           onClick={handleClick}
         />
       ))}
