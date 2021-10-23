@@ -1,4 +1,5 @@
-const contractName = process.env.REACT_APP_CONTRACT_NAME || 'test.tenk.testnet';
+const contractName =
+  process.env.REACT_APP_CONTRACT_NAME || 'minimo.tenk.testnet';
 
 export default function getConfig() {
   let config = {
@@ -22,6 +23,7 @@ export default function getConfig() {
         'nft_tokens_for_owner',
         'tokens_left',
         'cost_of_linkdrop',
+        'nft_metadata',
       ],
     },
   };

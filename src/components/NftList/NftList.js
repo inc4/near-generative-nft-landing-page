@@ -20,6 +20,7 @@ const NftList = () => {
           key={item.token_id}
           item={item.metadata}
           isHide={app.revealNearkats[item.token_id]}
+          urlIpfs={app.urlIpfs}
           onClick={handleClick}
         />
       ))}

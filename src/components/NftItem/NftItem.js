@@ -7,7 +7,7 @@ import NftItemInfo from '../NftItemInfo';
 import revealIcon from '../../assets/images/reveal.svg';
 import rarity from '../../assets/images/rarity-common.svg';
 
-const NftItem = ({ item, onClick, isHide }) => {
+const NftItem = ({ item, onClick, isHide, urlIpfs }) => {
   const [reveal, setReveal] = useState(isHide);
 
   const handleClick = () => {
@@ -21,16 +21,18 @@ const NftItem = ({ item, onClick, isHide }) => {
         <>
           <img
             className="nft-item__img"
-            src={`https://ipfs.io/ipfs/QmXxsVP5HahZEQFnfkXqmCHH3EXXdQeAUzenrTRpbQNeDb/${
-              item.title % 10
-            }/media.png`}
+            src={`${urlIpfs}/${item.media}`}
             alt="nearkat"
           />
           <div className="nft-item__footer">
             <p className="nft-item__hash"># {item?.title?.padStart(5, '0')}</p>
             <ReactSVG src={item.rarity || rarity} />
           </div>
-          <NftItemInfo className="nft-item__info" item={item} />
+          <NftItemInfo
+            className="nft-item__info"
+            item={item}
+            urlIpfs={urlIpfs}
+          />
         </>
       ) : (
         <li className="reveal__item" onClick={handleClick}>
@@ -56,6 +58,7 @@ NftItem.propTypes = {
   item: PropTypes.object,
   onClick: PropTypes.func,
   isHide: PropTypes.bool,
+  urlIpfs: PropTypes.string,
 };
 
 NftItem.defaultProps = {

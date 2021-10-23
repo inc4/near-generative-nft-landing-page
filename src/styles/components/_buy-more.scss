@@ -1,5 +1,6 @@
 .buy-more {
   position: relative;
+  height: fit-content;
 
   &::before {
     z-index: 1;
@@ -8,7 +9,7 @@
     left: 42px;
     content: '';
     width: 1px;
-    height: 85%;
+    height: 80%;
     border-left: 3px dotted #c4c4c486;
   }
 
