@@ -71,7 +71,6 @@ export const initNear =
             account_id: account.accountId,
           }),
         );
-        // console.log(('nft_metadata  ', await contract.nft_metadata()));
         console.log('nft_total_supply', await contract.nft_total_supply());
 
         await update('', { near, wallet, account, contract, price });
