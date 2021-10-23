@@ -65,16 +65,27 @@ export const initNear =
             account_id: account.accountId,
           }),
         );
+        console.log(
+          'nft_tokens_for_owner',
+          await contract.nft_tokens_for_owner({
+            account_id: account.accountId,
+          }),
+        );
+        // console.log(('nft_metadata  ', await contract.nft_metadata()));
         console.log('nft_total_supply', await contract.nft_total_supply());
+
+        await update('', { near, wallet, account, contract, price });
 
         const nearkatsArray = await contract.nft_tokens_for_owner({
           account_id: account.accountId,
         });
 
-        await update('', { near, wallet, account, contract, price });
+        // take url for IPFS where data stored
+        const { base_uri: urlIpfs } = await contract.nft_metadata();
 
+        // update state with nearkats and url for IPFS
         const state = getState();
-        const app = { ...state.app, nearkatsArray };
+        const app = { ...state.app, nearkatsArray, urlIpfs };
 
         await update('', { app });
         console.log('state:', getState());
