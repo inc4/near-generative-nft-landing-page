@@ -8,7 +8,8 @@ const initialState = {
     manyCount: 10,
     revealNearkats: JSON.parse(localStorage.getItem('revealNearkats')) || {},
     nearkatsArray: [],
-    linkDropArray: JSON.parse(localStorage.getItem('linkDropArray')),
+    linkDropArray: JSON.parse(localStorage.getItem('linkDropArray')) || [],
+    urlIpfs: '',
   },
   near: {
     initialized: false,
