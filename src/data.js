@@ -21,7 +21,7 @@ export async function linkDropGenerate(contract) {
   const cost = await contract.total_cost({ num: 1 });
 
   const url = WALLET_URL(
-    contract.account.accountId,
+    contract.contractId,
     keyPair.secretKey.toString(),
     window.location.href,
   );
