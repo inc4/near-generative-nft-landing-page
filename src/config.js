@@ -1,5 +1,5 @@
 const contractName =
-  process.env.REACT_APP_CONTRACT_NAME || 'minimo.tenk.testnet';
+  process.env.REACT_APP_CONTRACT_NAME || 'minimov2.tenk.testnet';
 
 export default function getConfig() {
   let config = {
@@ -8,7 +8,7 @@ export default function getConfig() {
     walletUrl: 'https://wallet.testnet.near.org',
     helperUrl: 'https://helper.testnet.near.org',
     contractName,
-    GAS: '200000000000000',
+    GAS: '300000000000000',
     DEFAULT_NEW_ACCOUNT_AMOUNT: '5',
     contractMethods: {
       changeMethods: ['nft_mint_one', 'nft_mint_many', 'create_linkdrop'],

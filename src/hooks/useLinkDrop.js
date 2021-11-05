@@ -15,14 +15,14 @@ const useLinkDrop = () => {
   const { contract } = state;
   const { app } = state;
 
-  const WALLET_URL = (account, key, url) =>
+  const walletUrl = (account, key, url) =>
     `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}`;
 
   const createLinkDrop = async (count) => {
     const keyPair = KeyPairEd25519.fromRandom();
 
-    const url = WALLET_URL(
-      contract.account.accountId,
+    const url = walletUrl(
+      contract.contractId,
       keyPair.secretKey.toString(),
       window.location.href,
     );
@@ -33,14 +33,14 @@ const useLinkDrop = () => {
       JSON.stringify([...linkDropArray, { link: url, text: '', id: id() }]),
     );
 
-    const cost = await contract.total_cost({ num: 1 });
+    const cost = await contract.cost_of_linkdrop();
 
     contract.create_linkdrop(
       {
         public_key: keyPair.getPublicKey().toString(),
       },
       GAS,
-      NEAR.parse('2').add(NEAR.from(cost)),
+      cost,
     );
     history.push('/link-drop');
   };

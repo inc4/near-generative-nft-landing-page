@@ -27,11 +27,10 @@ export const initNear =
       const price = await getPrice(near);
 
       wallet.signIn = (successUrl) => {
-        successUrl
-          ? wallet.requestSignIn({
+        wallet.requestSignIn({
               successUrl,
+              contractId: contractName
             })
-          : wallet.requestSignIn();
       };
 
       const signOut = wallet.signOut;
