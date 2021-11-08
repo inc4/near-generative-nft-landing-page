@@ -11,7 +11,12 @@ export default function getConfig() {
     GAS: '300000000000000',
     DEFAULT_NEW_ACCOUNT_AMOUNT: '5',
     contractMethods: {
-      changeMethods: ['nft_mint_one', 'nft_mint_many', 'create_linkdrop'],
+      changeMethods: [
+        'nft_mint_one',
+        'nft_mint_many',
+        'create_linkdrop',
+        'nft_transfer',
+      ],
       viewMethods: [
         'cost_per_token',
         'discount',
