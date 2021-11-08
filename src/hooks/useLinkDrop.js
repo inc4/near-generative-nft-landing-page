@@ -16,15 +16,15 @@ const useLinkDrop = () => {
   const { app } = state;
 
   const walletUrl = (account, key, url) =>
-    `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}`;
+    `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}/my-nfts`;
 
   const createLinkDrop = async (count) => {
     const keyPair = KeyPairEd25519.fromRandom();
-
+    const currentUrl = window.location.origin;
     const url = walletUrl(
       contract.contractId,
       keyPair.secretKey.toString(),
-      window.location.href,
+      currentUrl,
     );
 
     const { linkDropArray } = app;
@@ -34,15 +34,15 @@ const useLinkDrop = () => {
     );
 
     const cost = await contract.cost_of_linkdrop();
+    const publicKey = keyPair.getPublicKey().toString();
 
-    contract.create_linkdrop(
-      {
-        public_key: keyPair.getPublicKey().toString(),
-      },
-      GAS,
-      cost,
-    );
-    history.push('/link-drop');
+    // history.push('/link-drop');
+    await contract.create_linkdrop({
+      args: { public_key: publicKey },
+      gas: GAS,
+      amount: cost,
+      callbackUrl: `${currentUrl}/link-drop`,
+    });
   };
   return { createLinkDrop };
 };
