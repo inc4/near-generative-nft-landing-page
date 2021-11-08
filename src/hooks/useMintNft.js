@@ -8,11 +8,22 @@ const useMintNft = () => {
   const { contract, price } = state;
 
   const mintNft = async (count = 1) => {
+    const callbackUrl = `${window.location.origin}/my-nfts`;
     if (count === 1) {
-      contract.nft_mint_one({}, GAS, price.oneTokenCost);
+      contract.nft_mint_one({
+        args: {},
+        gas: GAS,
+        amount: price.oneTokenCost,
+        callbackUrl,
+      });
     } else {
       const priceOfManyNfts = await contract.total_cost({ num: count });
-      contract.nft_mint_many({ num: count }, GAS, priceOfManyNfts);
+      contract.nft_mint_many({
+        args: { num: count },
+        gas: GAS,
+        amount: priceOfManyNfts,
+        callbackUrl,
+      });
     }
   };
 
