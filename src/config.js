@@ -24,6 +24,7 @@ export default function getConfig() {
         'tokens_left',
         'cost_of_linkdrop',
         'nft_metadata',
+        'get_key_balance'
       ],
     },
   };

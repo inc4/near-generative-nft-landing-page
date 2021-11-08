@@ -28,9 +28,13 @@ const useLinkDrop = () => {
     );
 
     const { linkDropArray } = app;
+
     localStorage.setItem(
       'linkDropArray',
-      JSON.stringify([...linkDropArray, { link: url, text: '', id: id() }]),
+      JSON.stringify([
+        ...linkDropArray,
+        { link: url, text: '', id: id(), isUsed: false },
+      ]),
     );
 
     const cost = await contract.cost_of_linkdrop();
