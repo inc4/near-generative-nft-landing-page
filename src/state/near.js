@@ -2,6 +2,7 @@
 import getConfig from '../config';
 import * as nearAPI from 'near-api-js';
 import { getWallet, getContract, getPrice } from '../utils/near-utils';
+import { KeyPairEd25519 } from 'near-api-js/lib/utils';
 
 export const {
   networkId,
@@ -18,6 +19,14 @@ export const {
   },
 } = nearAPI;
 
+const linkmatcher =
+  /https:\/\/wallet.testnet.near.org\/linkdrop\/[^/]+\/(?<key>.+)\?redirectUrl=/;
+
+function getPublicKey(link) {
+  const m = link.match(linkmatcher).groups.key;
+  return KeyPairEd25519.fromString(m).getPublicKey();
+}
+
 export const initNear =
   () =>
   async ({ update, getState, dispatch }) => {
@@ -27,11 +36,10 @@ export const initNear =
       const price = await getPrice(near);
 
       wallet.signIn = (successUrl) => {
-        successUrl
-          ? wallet.requestSignIn({
-              successUrl,
-            })
-          : wallet.requestSignIn();
+        wallet.requestSignIn({
+          successUrl,
+          contractId: contractName,
+        });
       };
 
       const signOut = wallet.signOut;
@@ -84,6 +92,22 @@ export const initNear =
 
         // update state with nearkats and url for IPFS
         const state = getState();
+
+        // Updates link object if used or missing in contract
+        const links = await Promise.all(
+          state.app.linkDropArray.map(async (link) => {
+            try {
+              const key = getPublicKey(link.link).toString();
+              await contract.get_key_balance({ key });
+            } catch (err) {
+              if (err.message.includes('Key is missing')) {
+                link.isUsed = true;
+              }
+            }
+            return link;
+          }),
+        );
+        // state.app.linkDropArray = links.filter(link => !link.isUsed);
         const app = { ...state.app, nearkatsArray, urlIpfs };
 
         await update('', { app });

@@ -15,34 +15,38 @@ const useLinkDrop = () => {
   const { contract } = state;
   const { app } = state;
 
-  const WALLET_URL = (account, key, url) =>
-    `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}`;
+  const walletUrl = (account, key, url) =>
+    `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}/my-nfts`;
 
   const createLinkDrop = async (count) => {
     const keyPair = KeyPairEd25519.fromRandom();
-
-    const url = WALLET_URL(
-      contract.account.accountId,
+    const currentUrl = window.location.origin;
+    const url = walletUrl(
+      contract.contractId,
       keyPair.secretKey.toString(),
-      window.location.href,
+      currentUrl,
     );
 
     const { linkDropArray } = app;
+
     localStorage.setItem(
       'linkDropArray',
-      JSON.stringify([...linkDropArray, { link: url, text: '', id: id() }]),
+      JSON.stringify([
+        ...linkDropArray,
+        { link: url, text: '', id: id(), isUsed: false },
+      ]),
     );
 
-    const cost = await contract.total_cost({ num: 1 });
+    const cost = await contract.cost_of_linkdrop();
+    const publicKey = keyPair.getPublicKey().toString();
 
-    contract.create_linkdrop(
-      {
-        public_key: keyPair.getPublicKey().toString(),
-      },
-      GAS,
-      NEAR.parse('2').add(NEAR.from(cost)),
-    );
-    history.push('/link-drop');
+    // history.push('/link-drop');
+    await contract.create_linkdrop({
+      args: { public_key: publicKey },
+      gas: GAS,
+      amount: cost,
+      callbackUrl: `${currentUrl}/link-drop`,
+    });
   };
   return { createLinkDrop };
 };
