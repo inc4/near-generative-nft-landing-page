@@ -46,9 +46,9 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
         />
       </div>
       <div className="nft-item-info__stats">
-        {info.map((infoItem) => (
-          <p key={infoItem.value + NftItemInfo.trait_type}>
-            {infoItem.trait_type} : {infoItem.value}
+        {info?.map((infoItem) => (
+          <p key={infoItem?.value + NftItemInfo?.trait_type}>
+            {infoItem?.trait_type} : {infoItem?.value}
           </p>
         ))}
       </div>
