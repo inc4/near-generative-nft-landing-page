@@ -11,7 +11,7 @@ const useTransfer = () => {
 
   const nftTransfer = async () => {
     /* eslint-disable-next-line */
-    const token_id = prompt('NFT ID');
+    let token_id = prompt('NFT ID');
     /* eslint-disable-next-line */
     const receiver_id = prompt('Account to send to');
     if (
@@ -22,6 +22,7 @@ const useTransfer = () => {
     ) {
       return;
     }
+    token_id = token_id.replace(/^0*/, '');
     /* eslint-disable-next-line */
     await contract.nft_transfer({
       args: { receiver_id, token_id },
