@@ -63,6 +63,18 @@ export const initNear =
           2,
         );
 
+        const linkDropFromLocalStorage =
+          JSON.parse(localStorage.getItem('linkDropArray')) || [];
+        // take linkDropArray from Local Storage that not for current user;
+        const notCurrentUserLinkDropArray = linkDropFromLocalStorage.filter(
+          ({ accountId }) => accountId !== account.accountId,
+        );
+
+        // take lindDropArray from Local Storage for only that user that connect with near wallet ( filter by accountId )
+        let linkDropArray = linkDropFromLocalStorage.filter(
+          ({ accountId }) => accountId === account.accountId,
+        );
+
         // take information about NFT tokens
         const contract = getContract(account, contractMethods);
 
@@ -94,8 +106,8 @@ export const initNear =
         const state = getState();
 
         // Updates link object if used or missing in contract
-        const links = await Promise.all(
-          state.app.linkDropArray.map(async (link) => {
+        await Promise.all(
+          linkDropArray.map(async (link) => {
             try {
               const key = getPublicKey(link.link).toString();
               await contract.get_key_balance({ key });
@@ -107,8 +119,18 @@ export const initNear =
             return link;
           }),
         );
+
+        // filter linkDrops that was used
+        linkDropArray = linkDropArray.filter(({ isUsed }) => !isUsed);
+
+        // update LocalStorage
+        localStorage.setItem(
+          'linkDropArray',
+          JSON.stringify([...notCurrentUserLinkDropArray, ...linkDropArray]),
+        );
+
         // state.app.linkDropArray = links.filter(link => !link.isUsed);
-        const app = { ...state.app, nearkatsArray, urlIpfs };
+        const app = { ...state.app, nearkatsArray, urlIpfs, linkDropArray };
 
         await update('', { app });
         console.log('state:', getState());

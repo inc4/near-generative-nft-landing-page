@@ -17,10 +17,16 @@ const LinkDrop = () => {
   const history = useHistory();
 
   const { state } = useContext(appStore);
-  const { app } = state;
+  const { app, account } = state;
 
-  const [linkDropArray, setLinkDropArray] = useState(app.linkDropArray);
+  const [linkDropArray, setLinkDropArray] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (app.linkDropArray.length) {
+      setLinkDropArray([...app.linkDropArray]);
+    }
+  }, [app.linkDropArray.length]);
 
   useEffect(() => {
     if (!localStorage.undefined_wallet_auth_key) {
@@ -41,6 +47,15 @@ const LinkDrop = () => {
 
   const handleCircleClick = (index) => {
     setActiveIndex(index);
+  };
+
+  const handleSaveBtn = () => {
+    let testLinkDropArray = JSON.parse(
+      localStorage.getItem('linkDropArray'),
+    ).filter(({ accountId }) => accountId !== account.accountId);
+    testLinkDropArray = [...testLinkDropArray, ...linkDropArray];
+
+    localStorage.setItem('linkDropArray', JSON.stringify(testLinkDropArray));
   };
 
   return linkDropArray.length ? (
@@ -74,15 +89,7 @@ const LinkDrop = () => {
                 ))}
               </ul>
               <div className="link-drop__save">
-                <SaveBtn
-                  onClick={() => {
-                    console.log('Save: linkDropArray', linkDropArray);
-                    localStorage.setItem(
-                      'linkDropArray',
-                      JSON.stringify(linkDropArray),
-                    );
-                  }}
-                />
+                <SaveBtn onClick={handleSaveBtn} />
               </div>
 
               <ShareSocialLinks
