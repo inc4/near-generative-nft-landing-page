@@ -1,5 +1,6 @@
-const contractName =
-  process.env.REACT_APP_CONTRACT_NAME || 'minimov2.tenk.testnet';
+// const contractName =
+//   process.env.REACT_APP_CONTRACT_NAME || 'minimov2.tenk.testnet';
+const contractName = process.env.REACT_APP_CONTRACT_NAME || 'v0.tenk.testnet';
 
 export default function getConfig() {
   let config = {
