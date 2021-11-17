@@ -12,7 +12,7 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
       const response = await fetch(`${urlIpfs}/${item.reference}`);
       const data = await response.json();
 
-      setInfo(data.extra);
+      setInfo(data);
     } catch (e) {
       // eslint-disable-next-line
       console.log(e);
@@ -46,11 +46,7 @@ const NftItemInfo = ({ className, item, urlIpfs }) => {
         />
       </div>
       <div className="nft-item-info__stats">
-        {info.map((infoItem) => (
-          <p key={infoItem.value + NftItemInfo.trait_type}>
-            {infoItem.trait_type} : {infoItem.value}
-          </p>
-        ))}
+        <p key={info.value + info.trait_type}>repo : {info.repo}</p>
       </div>
     </div>
   );
