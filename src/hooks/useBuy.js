@@ -33,6 +33,22 @@ const useBuy = (isLinkDrop) => {
     }
   };
 
+  const formatPrice = (price) => {
+    // take array from price
+    const arrayFromPrice = price.toString().split('');
+
+    // set default value of price
+    let formatedPrice = arrayFromPrice.join('');
+
+    arrayFromPrice.forEach((item, index, arr) => {
+      // keep only 1 character after point if we have it
+      if (item === '.') {
+        formatedPrice = arr.slice(0, index + 2).join('');
+      }
+    });
+
+    return formatedPrice;
+  };
   const handleNumberClick = (number) => {
     if (count === number) {
       return;
@@ -54,6 +70,7 @@ const useBuy = (isLinkDrop) => {
     showMessage,
     setShowMessage,
     showCountAnimation,
+    formatPrice,
     handleClick,
     handleNumberClick,
   };
