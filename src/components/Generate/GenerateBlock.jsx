@@ -17,6 +17,7 @@ const GenerateBlock = () => {
     showMessage,
     setShowMessage,
     showCountAnimation,
+    formatPrice,
     handleNumberClick,
   } = useBuy();
 
@@ -41,7 +42,9 @@ const GenerateBlock = () => {
       <div className="generate-block__price ">
         <span className="generate-block__near">Ⓝ</span>
         <p className={`generate-block__count  ${showCountAnimation}`}>
-          {count === app.manyCount ? price.manyNFTS : price.oneNFT}
+          {count === app.manyCount
+            ? formatPrice(price.manyNFTS)
+            : formatPrice(price.oneNFT)}
         </p>
       </div>
       <BuyMoreBtn
