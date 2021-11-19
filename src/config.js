@@ -29,7 +29,7 @@ export default function getConfig() {
         'cost_of_linkdrop',
         'nft_metadata',
         'get_key_balance',
-        'check_key'
+        'check_key',
       ],
     },
   };
