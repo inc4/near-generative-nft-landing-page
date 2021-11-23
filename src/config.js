@@ -1,6 +1,4 @@
-// const contractName =
-//   process.env.REACT_APP_CONTRACT_NAME || 'minimov2.tenk.testnet';
-const contractName = process.env.REACT_APP_CONTRACT_NAME || 'v0.tenk.testnet';
+const contractName = process.env.REACT_APP_CONTRACT_NAME || 'v0.tenk.near';
 
 export default function getConfig() {
   let config = {
@@ -31,20 +29,20 @@ export default function getConfig() {
         'cost_of_linkdrop',
         'nft_metadata',
         'get_key_balance',
+        'check_key',
       ],
     },
   };
 
-  if (process.env.REACT_APP_ENV === 'prod') {
-    config = {
-      ...config,
-      networkId: 'mainnet',
-      nodeUrl: 'https://rpc.mainnet.near.org',
-      walletUrl: 'https://wallet.near.org',
-      helperUrl: 'https://helper.mainnet.near.org',
-      contractName: 'near',
-    };
-  }
+  // if (process.env.REACT_APP_ENV === 'prod') {
+  config = {
+    ...config,
+    networkId: 'mainnet',
+    nodeUrl: 'https://rpc.mainnet.near.org',
+    walletUrl: 'https://wallet.near.org',
+    helperUrl: 'https://helper.mainnet.near.org',
+  };
+  // }
 
   return config;
 }

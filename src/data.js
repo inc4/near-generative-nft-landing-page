@@ -12,7 +12,7 @@ export function fakeLinkDropGenerate(contract) {
 }
 
 const WALLET_URL = (account, key, url) =>
-  `https://wallet.testnet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}`;
+  `https://wallet.near.org/linkdrop/${account}/${key}?redirectUrl=${url}`;
 
 export async function linkDropGenerate(contract) {
   const keyPair = KeyPairEd25519.fromRandom();
