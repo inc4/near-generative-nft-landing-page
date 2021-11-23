@@ -20,7 +20,7 @@ export const {
 } = nearAPI;
 
 const linkmatcher =
-  /https:\/\/wallet.testnet.near.org\/linkdrop\/[^/]+\/(?<key>.+)\?redirectUrl=/;
+  /https:\/\/wallet.*near.org\/linkdrop\/[^/]+\/(?<key>.+)\?redirectUrl=/;
 
 function getPublicKey(link) {
   const m = link.match(linkmatcher).groups.key;

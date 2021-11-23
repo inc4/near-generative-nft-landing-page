@@ -1,4 +1,4 @@
-const contractName = process.env.REACT_APP_CONTRACT_NAME || 'v1.tenk.testnet';
+const contractName = process.env.REACT_APP_CONTRACT_NAME || 'v0.tenk.near';
 
 export default function getConfig() {
   let config = {
@@ -34,15 +34,15 @@ export default function getConfig() {
     },
   };
 
-  if (process.env.REACT_APP_ENV === 'prod') {
-    config = {
-      ...config,
-      networkId: 'mainnet',
-      nodeUrl: 'https://rpc.mainnet.near.org',
-      walletUrl: 'https://wallet.near.org',
-      helperUrl: 'https://helper.mainnet.near.org',
-    };
-  }
+  // if (process.env.REACT_APP_ENV === 'prod') {
+  config = {
+    ...config,
+    networkId: 'mainnet',
+    nodeUrl: 'https://rpc.mainnet.near.org',
+    walletUrl: 'https://wallet.near.org',
+    helperUrl: 'https://helper.mainnet.near.org',
+  };
+  // }
 
   return config;
 }
